@@ -37,7 +37,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
   return (
     <>
       {/* Breadcrumbs Navigation */}
-      <div className="bg-brandBlue-pale/40 border-b border-borderSubtle">
+      <div className="bg-surface-muted/60 border-b border-borderSubtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumbs
             items={[
@@ -49,14 +49,14 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
       </div>
 
       {/* Visual Service Hero with Photography */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-brandBlue-pale/80 via-white to-white py-12 sm:py-16 border-b border-borderSubtle/60">
+      <section className="relative overflow-hidden bg-white py-12 sm:py-16 border-b border-borderSubtle/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <span className="inline-block text-xs font-bold uppercase tracking-wider text-brandBlue bg-brandBlue-soft px-3 py-1 rounded-pill">
+              <span className="inline-block text-xs font-semibold text-brandBlue uppercase tracking-wider">
                 {service.eyebrow}
               </span>
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight font-heading">
                 {service.title}
               </h1>
               <p className="text-base sm:text-lg text-bodyText leading-relaxed">
@@ -66,7 +66,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                 <Button
                   href="/appointment"
                   variant="primary"
-                  className="rounded-pill bg-gradient-to-r from-brandBlue to-brandCyan shadow-soft px-6"
+                  className="rounded-full bg-brandBlue hover:bg-brandBlue-hover text-white shadow-soft font-semibold text-xs px-6"
                 >
                   <Calendar className="w-4 h-4 mr-2" />
                   <span>Book this Consultation</span>
@@ -74,7 +74,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                 <Button
                   href={whatsappUrl}
                   variant="secondary"
-                  className="rounded-pill bg-emerald-600 text-white hover:bg-emerald-700 border-none px-5"
+                  className="rounded-full bg-emerald-600 text-white hover:bg-emerald-700 border-none px-5 shadow-soft font-semibold text-xs"
                 >
                   <MessageSquare className="w-4 h-4 mr-2" />
                   <span>WhatsApp Enquiry</span>
@@ -83,7 +83,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
             </div>
 
             <div className="lg:col-span-5">
-              <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-[24px] overflow-hidden border-4 border-white shadow-card bg-brandBlue-pale">
+              <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-2xl overflow-hidden border border-borderSubtle shadow-card bg-brandBlue-pale/50">
                 <Image
                   src={service.image}
                   alt={`${service.title} consultation with Dr. Shikha Gupta at Sethi Multispecialty Clinic, Kamla Nagar, Delhi`}
@@ -92,10 +92,10 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                   sizes="(max-width: 768px) 100vw, 500px"
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <p className="text-xs font-medium text-white/80">Dr. Shikha Gupta&apos;s Clinic</p>
-                  <p className="text-sm font-bold">{service.title}</p>
+                  <p className="text-xs font-medium text-white/80">Dr. Shikha Gupta&apos;s Clinic • Kamla Nagar</p>
+                  <p className="text-sm font-bold font-heading">{service.title}</p>
                 </div>
               </div>
             </div>
@@ -104,14 +104,14 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
       </section>
 
       {/* Main Content Layout */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-surface-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Content Body */}
             <div className="lg:col-span-7 space-y-10">
               {/* Detailed Overview */}
-              <div>
-                <h2 className="text-2xl font-bold text-navy mb-4">
+              <div className="bg-white rounded-2xl border border-borderSubtle p-6 sm:p-8 shadow-soft space-y-4">
+                <h2 className="text-2xl font-bold text-navy font-heading">
                   About this Consultation
                 </h2>
                 <div className="space-y-4 text-base text-bodyText leading-relaxed">
@@ -122,32 +122,32 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
               </div>
 
               {/* What We Cover */}
-              <div className="pt-6 border-t border-borderSubtle">
-                <h3 className="text-xl font-bold text-navy mb-4">
+              <div className="bg-white rounded-2xl border border-borderSubtle p-6 sm:p-8 shadow-soft space-y-4">
+                <h3 className="text-xl font-bold text-navy font-heading">
                   What We Cover During the Visit
                 </h3>
                 <ul className="space-y-3">
                   {service.whatWeCover.map((item, i) => (
                     <li key={i} className="flex items-start gap-3 text-sm text-bodyText">
-                      <span className="w-5 h-5 rounded-full bg-brandBlue-soft flex items-center justify-center shrink-0 mt-0.5">
-                        <CheckCircle2 className="w-3.5 h-3.5 text-brandBlue" />
+                      <span className="w-5 h-5 rounded-full bg-emerald-50 flex items-center justify-center shrink-0 mt-0.5 border border-emerald-200">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
                       </span>
-                      <span>{item}</span>
+                      <span className="leading-relaxed">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Who It Is For */}
-              <div className="pt-6 border-t border-borderSubtle">
-                <h3 className="text-xl font-bold text-navy mb-4">
+              <div className="bg-white rounded-2xl border border-borderSubtle p-6 sm:p-8 shadow-soft space-y-4">
+                <h3 className="text-xl font-bold text-navy font-heading">
                   Who Can Benefit from this Visit
                 </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   {service.whoItIsFor.map((item, i) => (
                     <div
                       key={i}
-                      className="p-3.5 rounded-card border border-borderSubtle bg-brandBlue-pale/40 text-xs sm:text-sm text-bodyText"
+                      className="p-3.5 rounded-xl border border-borderSubtle bg-surface-muted/60 text-xs sm:text-sm text-bodyText leading-relaxed"
                     >
                       {item}
                     </div>
@@ -156,17 +156,17 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
               </div>
 
               {/* What Parents Should Bring */}
-              <div className="pt-6 border-t border-borderSubtle">
-                <h3 className="text-xl font-bold text-navy mb-4 flex items-center gap-2">
+              <div className="bg-white rounded-2xl border border-borderSubtle p-6 sm:p-8 shadow-soft space-y-4">
+                <h3 className="text-xl font-bold text-navy font-heading flex items-center gap-2">
                   <FileText className="w-5 h-5 text-brandBlue" />
                   <span>What to Bring to Your Consultation</span>
                 </h3>
-                <div className="bg-brandBlue-pale/50 rounded-card border border-borderSubtle p-5">
+                <div className="bg-surface-muted/60 rounded-xl border border-borderSubtle/60 p-5">
                   <ul className="space-y-2.5 text-xs sm:text-sm text-bodyText">
                     {service.whatParentsShouldBring.map((tip, i) => (
-                      <li key={i} className="flex items-start gap-2">
+                      <li key={i} className="flex items-start gap-2.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-brandBlue mt-2 shrink-0" />
-                        <span>{tip}</span>
+                        <span className="leading-relaxed">{tip}</span>
                       </li>
                     ))}
                   </ul>
@@ -175,10 +175,10 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
 
               {/* Important Medical / Scope Notice */}
               {service.importantNotice && (
-                <div className="rounded-card bg-status-warningBg/50 border border-status-warning/20 p-5 text-xs sm:text-sm text-bodyText flex items-start gap-3">
-                  <AlertCircle className="w-5 h-5 text-status-warning shrink-0 mt-0.5" />
+                <div className="rounded-2xl bg-amber-50/70 border border-amber-200/80 p-5 text-xs sm:text-sm text-bodyText flex items-start gap-3">
+                  <AlertCircle className="w-5 h-5 text-amber-800 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="font-semibold text-navy">Important Information:</strong>
+                    <strong className="font-semibold text-navy">Important Notice:</strong>
                     <p className="mt-1 leading-relaxed text-bodyText-muted">
                       {service.importantNotice}
                     </p>
@@ -188,8 +188,8 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
 
               {/* Related FAQs if any */}
               {relatedFaqs.length > 0 && (
-                <div className="pt-6 border-t border-borderSubtle">
-                  <h3 className="text-xl font-bold text-navy mb-4 flex items-center gap-2">
+                <div className="bg-white rounded-2xl border border-borderSubtle p-6 sm:p-8 shadow-soft space-y-4">
+                  <h3 className="text-xl font-bold text-navy font-heading flex items-center gap-2">
                     <HelpCircle className="w-5 h-5 text-brandBlue" />
                     <span>Frequently Asked Questions</span>
                   </h3>
@@ -210,32 +210,32 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                 <AppointmentForm initialServiceId={service.id} />
 
                 {/* Direct Contact Options */}
-                <div className="bg-brandBlue-pale/60 rounded-card border border-borderSubtle p-6 space-y-4">
-                  <h4 className="font-bold text-navy text-sm uppercase tracking-wider">
-                    Need to Call Directly?
+                <div className="bg-white rounded-2xl border border-borderSubtle p-6 space-y-4 shadow-soft">
+                  <h4 className="font-bold text-navy text-xs uppercase tracking-wider font-heading">
+                    Need Direct Assistance?
                   </h4>
                   <div className="space-y-2.5">
                     <Button
                       href={`tel:${clinicData.contact.phone}`}
                       variant="outline"
-                      className="w-full justify-center bg-white rounded-pill"
+                      className="w-full justify-center bg-white border-borderSubtle text-navy hover:text-brandBlue rounded-full text-xs font-semibold"
                     >
-                      <Phone className="w-4 h-4 mr-2 text-brandBlue" />
+                      <Phone className="w-3.5 h-3.5 mr-2 text-brandBlue" />
                       <span>Call {clinicData.contact.phoneDisplay}</span>
                     </Button>
 
                     <Button
                       href={whatsappUrl}
                       variant="secondary"
-                      className="w-full justify-center bg-emerald-600 text-white hover:bg-emerald-700 border-none rounded-pill"
+                      className="w-full justify-center bg-emerald-600 text-white hover:bg-emerald-700 border-none rounded-full text-xs font-semibold shadow-soft"
                     >
-                      <MessageSquare className="w-4 h-4 mr-2" />
+                      <MessageSquare className="w-3.5 h-3.5 mr-2" />
                       <span>WhatsApp Reception</span>
                     </Button>
                   </div>
 
-                  <p className="text-[11px] text-bodyText-muted text-center pt-1">
-                    Morning: 10:30 AM–12:30 PM & Evening: 6:00 PM–8:30 PM
+                  <p className="text-[11px] text-bodyText-muted text-center pt-1 border-t border-borderSubtle/60">
+                    Mon–Sat: 10:30 AM–12:30 PM & 6:00 PM–8:30 PM
                   </p>
                 </div>
               </div>
@@ -245,18 +245,18 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
       </section>
 
       {/* Explore Other Services */}
-      <section className="py-14 bg-brandBlue-pale/30 border-t border-borderSubtle">
+      <section className="py-14 bg-white border-t border-borderSubtle/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl font-bold text-navy">
+            <h3 className="text-xl sm:text-2xl font-bold text-navy font-heading">
               Explore Other Paediatric Services
             </h3>
             <Link
               href="/services"
-              className="text-xs font-bold text-brandBlue hover:underline flex items-center gap-1"
+              className="text-xs font-bold text-brandBlue hover:text-navy inline-flex items-center gap-1 group"
             >
-              <span>View all services</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>View all 7 services</span>
+              <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
@@ -264,9 +264,9 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
             {otherServices.map((s) => (
               <div
                 key={s.id}
-                className="bg-white rounded-card border border-borderSubtle overflow-hidden hover:shadow-card transition-all flex flex-col justify-between"
+                className="bg-white rounded-2xl border border-borderSubtle overflow-hidden hover:shadow-card hover:border-brandBlue/30 transition-all flex flex-col justify-between shadow-soft"
               >
-                <div className="relative aspect-[16/9] w-full overflow-hidden bg-brandBlue-pale">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-brandBlue-pale">
                   <Image
                     src={s.image}
                     alt={`${s.title} - Dr. Shikha Gupta, Paediatrician in Kamla Nagar`}
@@ -275,20 +275,20 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                     className="object-cover"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-                  <p className="absolute bottom-2 left-3 text-xs font-bold text-white truncate">
+                  <p className="absolute bottom-2.5 left-3.5 right-3.5 text-xs font-bold text-white truncate font-heading">
                     {s.title}
                   </p>
                 </div>
-                <div className="p-4 space-y-2">
+                <div className="p-4 space-y-2 flex-1 flex flex-col justify-between">
                   <p className="text-xs text-bodyText-muted line-clamp-2 leading-relaxed">
                     {s.shortDescription}
                   </p>
                   <Link
                     href={`/services/${s.slug}`}
-                    className="text-xs font-bold text-brandBlue hover:text-navy inline-flex items-center gap-1 pt-1"
+                    className="text-xs font-bold text-brandBlue hover:text-navy inline-flex items-center gap-1 pt-2 group"
                   >
-                    <span>Read service details</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Read clinical details</span>
+                    <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-1 transition-transform" />
                   </Link>
                 </div>
               </div>

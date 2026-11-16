@@ -33,18 +33,19 @@ export function ContactForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-card border border-borderSubtle p-8 text-center shadow-soft animate-in fade-in duration-300">
-        <div className="w-14 h-14 bg-status-successBg rounded-full flex items-center justify-center mx-auto mb-4 text-status-success">
+      <div className="bg-white rounded-2xl border border-borderSubtle p-8 text-center shadow-soft animate-in fade-in duration-300">
+        <div className="w-14 h-14 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600 border border-emerald-200">
           <CheckCircle2 className="w-8 h-8" />
         </div>
-        <h4 className="text-xl font-bold text-navy mb-2">Message Received</h4>
-        <p className="text-sm text-bodyText-muted max-w-md mx-auto mb-6">
+        <h4 className="text-xl font-bold text-navy mb-2 font-heading">Message Received</h4>
+        <p className="text-xs sm:text-sm text-bodyText-muted max-w-md mx-auto mb-6 leading-relaxed">
           Thank you, <strong>{submittedName}</strong>. Your enquiry has been received. The clinic team will contact you using the details provided during clinic hours.
         </p>
         <Button
           type="button"
           variant="outline"
           size="sm"
+          className="rounded-full text-xs font-semibold"
           onClick={() => {
             setIsSubmitted(false);
             reset();
@@ -59,11 +60,11 @@ export function ContactForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="bg-white rounded-card border border-borderSubtle p-6 sm:p-8 shadow-card space-y-5"
+      className="bg-white rounded-2xl border border-borderSubtle p-6 sm:p-8 shadow-card space-y-5"
       noValidate
     >
       <div>
-        <h3 className="text-xl font-bold text-navy">Send an Enquiry</h3>
+        <h3 className="text-xl font-bold text-navy font-heading">Send an Enquiry</h3>
         <p className="text-xs sm:text-sm text-bodyText-muted mt-1">
           Have a question about clinic timings, consultation availability, or routine services? Write to us below.
         </p>
@@ -71,40 +72,40 @@ export function ContactForm() {
 
       <div className="space-y-4">
         <div>
-          <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5">
-            Your Name <span className="text-status-emergency">*</span>
+          <label htmlFor="fullName" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5 font-heading">
+            Your Name <span className="text-rose-500">*</span>
           </label>
           <input
             id="fullName"
             type="text"
             placeholder="e.g. Ramesh Kumar"
             {...register("fullName")}
-            className="w-full px-3.5 py-2.5 rounded-element border border-borderSubtle text-sm text-bodyText placeholder:text-bodyText-subtle focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none"
+            className="w-full px-3.5 py-2.5 rounded-xl border border-borderSubtle text-sm text-bodyText placeholder:text-bodyText-muted focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none bg-white"
           />
           {errors.fullName && (
-            <p className="text-xs text-status-emergency mt-1">{errors.fullName.message}</p>
+            <p className="text-xs text-rose-500 mt-1">{errors.fullName.message}</p>
           )}
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label htmlFor="phoneNumber" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5">
-              Phone Number <span className="text-status-emergency">*</span>
+            <label htmlFor="phoneNumber" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5 font-heading">
+              Phone Number <span className="text-rose-500">*</span>
             </label>
             <input
               id="phoneNumber"
               type="tel"
               placeholder="e.g. 98765 43210"
               {...register("phoneNumber")}
-              className="w-full px-3.5 py-2.5 rounded-element border border-borderSubtle text-sm text-bodyText placeholder:text-bodyText-subtle focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-borderSubtle text-sm text-bodyText placeholder:text-bodyText-muted focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none bg-white"
             />
             {errors.phoneNumber && (
-              <p className="text-xs text-status-emergency mt-1">{errors.phoneNumber.message}</p>
+              <p className="text-xs text-rose-500 mt-1">{errors.phoneNumber.message}</p>
             )}
           </div>
 
           <div>
-            <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5">
+            <label htmlFor="email" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5 font-heading">
               Email Address <span className="text-bodyText-muted font-normal text-[11px]">(Optional)</span>
             </label>
             <input
@@ -112,22 +113,22 @@ export function ContactForm() {
               type="email"
               placeholder="e.g. ramesh@example.com"
               {...register("email")}
-              className="w-full px-3.5 py-2.5 rounded-element border border-borderSubtle text-sm text-bodyText placeholder:text-bodyText-subtle focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none"
+              className="w-full px-3.5 py-2.5 rounded-xl border border-borderSubtle text-sm text-bodyText placeholder:text-bodyText-muted focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none bg-white"
             />
             {errors.email && (
-              <p className="text-xs text-status-emergency mt-1">{errors.email.message}</p>
+              <p className="text-xs text-rose-500 mt-1">{errors.email.message}</p>
             )}
           </div>
         </div>
 
         <div>
-          <label htmlFor="enquiryType" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5">
-            Enquiry Topic <span className="text-status-emergency">*</span>
+          <label htmlFor="enquiryType" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5 font-heading">
+            Enquiry Topic <span className="text-rose-500">*</span>
           </label>
           <select
             id="enquiryType"
             {...register("enquiryType")}
-            className="w-full px-3.5 py-2.5 rounded-element border border-borderSubtle text-sm text-bodyText focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none bg-white"
+            className="w-full px-3.5 py-2.5 rounded-xl border border-borderSubtle text-sm text-bodyText focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none bg-white"
           >
             <option value="appointment">Appointment Availability</option>
             <option value="vaccination">Vaccination Guidance & Doses</option>
@@ -138,18 +139,18 @@ export function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5">
-            Your Message <span className="text-status-emergency">*</span>
+          <label htmlFor="message" className="block text-xs font-semibold uppercase tracking-wider text-navy mb-1.5 font-heading">
+            Your Message <span className="text-rose-500">*</span>
           </label>
           <textarea
             id="message"
             rows={4}
             placeholder="How can we help? (Please avoid submitting sensitive emergency records here)"
             {...register("message")}
-            className="w-full px-3.5 py-2.5 rounded-element border border-borderSubtle text-sm text-bodyText placeholder:text-bodyText-subtle focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none resize-none"
+            className="w-full px-3.5 py-2.5 rounded-xl border border-borderSubtle text-sm text-bodyText placeholder:text-bodyText-muted focus:border-brandBlue focus:ring-1 focus:ring-brandBlue transition-colors outline-none resize-none bg-white"
           />
           {errors.message && (
-            <p className="text-xs text-status-emergency mt-1">{errors.message.message}</p>
+            <p className="text-xs text-rose-500 mt-1">{errors.message.message}</p>
           )}
         </div>
 
@@ -170,7 +171,7 @@ export function ContactForm() {
             </label>
           </div>
           {errors.consentGiven && (
-            <p className="text-xs text-status-emergency mt-1">{errors.consentGiven.message}</p>
+            <p className="text-xs text-rose-500 mt-1">{errors.consentGiven.message}</p>
           )}
         </div>
       </div>
@@ -180,12 +181,12 @@ export function ContactForm() {
         variant="primary"
         size="lg"
         disabled={isSubmitting}
-        className="w-full justify-center"
+        className="w-full justify-center rounded-full bg-brandBlue hover:bg-brandBlue-hover text-white shadow-soft font-semibold text-xs sm:text-sm"
       >
         {isSubmitting ? "Sending..." : (
           <>
             <Send className="w-4 h-4 mr-2" />
-            Send Enquiry
+            <span>Send Enquiry</span>
           </>
         )}
       </Button>
@@ -197,4 +198,3 @@ export function ContactForm() {
     </form>
   );
 }
-

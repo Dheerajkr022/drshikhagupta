@@ -4,12 +4,9 @@ import { Metadata } from "next";
 import {
   Home,
   Calendar,
-  Phone,
   MessageSquare,
   ArrowRight,
-  Search,
   AlertTriangle,
-  Sparkles,
   Baby,
   Syringe,
   TrendingUp,
@@ -62,26 +59,23 @@ export default function NotFound() {
   )}`;
 
   return (
-    <div className="min-h-[80vh] flex flex-col justify-center bg-gradient-to-b from-brandBlue-pale/60 via-white to-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-[80vh] flex flex-col justify-center bg-white py-16 sm:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-4xl mx-auto w-full text-center space-y-10">
-        {/* Animated 404 Badge */}
+        {/* Clean 404 Badge & Heading */}
         <div className="space-y-4">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-pill bg-white border border-brandBlue/20 shadow-soft text-brandBlue text-xs font-bold uppercase tracking-wider">
-            <Compass className="w-4 h-4 animate-spin-slow" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-surface-muted border border-borderSubtle text-brandBlue text-xs font-semibold">
+            <Compass className="w-3.5 h-3.5" />
             <span>Navigation Guide • 404 Error</span>
           </div>
 
-          <div className="relative inline-block">
-            <span className="text-8xl sm:text-9xl font-black tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-brandBlue via-brandCyan to-brandBlue-hover select-none">
+          <div>
+            <span className="text-7xl sm:text-8xl font-black tracking-tight text-navy select-none font-mono">
               404
             </span>
-            <div className="absolute -top-2 -right-3 sm:-right-4 w-9 h-9 rounded-full bg-amber-100 border border-amber-300 flex items-center justify-center text-amber-600 animate-bounce">
-              <Sparkles className="w-5 h-5 fill-amber-400" />
-            </div>
           </div>
 
-          <h1 className="text-2xl sm:text-4xl font-extrabold text-navy tracking-tight">
-            Oops! This Page Seems to Have Wandered Off.
+          <h1 className="text-2xl sm:text-4xl font-extrabold text-navy tracking-tight font-heading">
+            This Page Seems to Have Wandered Off.
           </h1>
           <p className="text-base sm:text-lg text-bodyText-muted max-w-xl mx-auto leading-relaxed">
             The page you are looking for may have been moved, updated, or does not exist. Don&apos;t worry—your child&apos;s healthcare journey is always close at hand.
@@ -94,7 +88,7 @@ export default function NotFound() {
             href="/"
             variant="primary"
             size="lg"
-            className="rounded-pill shadow-glow bg-gradient-to-r from-brandBlue to-brandCyan hover:from-brandBlue-hover hover:to-brandBlue px-7"
+            className="rounded-full bg-brandBlue hover:bg-brandBlue-hover text-white shadow-soft font-semibold text-xs sm:text-sm px-6"
           >
             <Home className="w-4 h-4 mr-2" />
             <span>Back to Home</span>
@@ -104,7 +98,7 @@ export default function NotFound() {
             href="/appointment"
             variant="outline"
             size="lg"
-            className="rounded-pill bg-white border-brandBlue/30 text-navy hover:bg-brandBlue-pale px-6"
+            className="rounded-full bg-white border-borderSubtle text-navy hover:text-brandBlue hover:border-brandBlue shadow-soft font-semibold text-xs sm:text-sm px-6"
           >
             <Calendar className="w-4 h-4 mr-2 text-brandBlue" />
             <span>Book Appointment</span>
@@ -114,7 +108,7 @@ export default function NotFound() {
             href={whatsappUrl}
             variant="secondary"
             size="lg"
-            className="rounded-pill bg-emerald-600 text-white hover:bg-emerald-700 border-none shadow-soft px-6"
+            className="rounded-full bg-emerald-600 text-white hover:bg-emerald-700 border-none shadow-soft font-semibold text-xs sm:text-sm px-6"
           >
             <MessageSquare className="w-4 h-4 mr-2" />
             <span>WhatsApp Enquiry</span>
@@ -122,8 +116,8 @@ export default function NotFound() {
         </div>
 
         {/* Popular Pediatric Services Links */}
-        <div className="pt-8 border-t border-borderSubtle space-y-4">
-          <h2 className="text-sm font-bold uppercase tracking-wider text-navy">
+        <div className="pt-8 border-t border-borderSubtle/70 space-y-4">
+          <h2 className="text-xs font-bold uppercase tracking-wider text-navy font-heading">
             Looking for a specific paediatric service?
           </h2>
 
@@ -132,13 +126,13 @@ export default function NotFound() {
               <Link
                 key={svc.title}
                 href={svc.href}
-                className="group p-4 rounded-card border border-borderSubtle bg-white hover:border-brandBlue/40 hover:shadow-card transition-all flex flex-col justify-between"
+                className="group p-4 rounded-2xl border border-borderSubtle bg-white hover:border-brandBlue/40 hover:shadow-card transition-all flex flex-col justify-between shadow-soft"
               >
                 <div>
-                  <div className="w-8 h-8 rounded-full bg-brandBlue-soft flex items-center justify-center mb-2.5 group-hover:scale-110 transition-transform">
+                  <div className="w-8 h-8 rounded-lg bg-brandBlue-soft flex items-center justify-center mb-2.5 group-hover:bg-brandBlue group-hover:text-white transition-colors border border-brandBlue/15">
                     {svc.icon}
                   </div>
-                  <h3 className="text-sm font-bold text-navy group-hover:text-brandBlue transition-colors">
+                  <h3 className="text-sm font-bold text-navy group-hover:text-brandBlue transition-colors font-heading">
                     {svc.title}
                   </h3>
                   <p className="text-xs text-bodyText-muted mt-1 leading-snug">
@@ -175,10 +169,10 @@ export default function NotFound() {
         </div>
 
         {/* Emergency Medical Disclaimer */}
-        <div className="max-w-2xl mx-auto rounded-element bg-amber-50/80 border border-amber-200 p-4 text-xs text-amber-900 flex items-start gap-3 text-left">
-          <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+        <div className="max-w-2xl mx-auto rounded-xl bg-amber-50/70 border border-amber-200/80 p-4 text-xs text-amber-900 flex items-start gap-3 text-left">
+          <AlertTriangle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
           <div>
-            <strong className="font-semibold">Urgent Medical Notice:</strong> If your child is facing an emergency (such as severe breathing distress, seizures, or acute dehydration), please do not wait. Call 112 or visit the nearest hospital casualty immediately.
+            <strong className="font-semibold text-navy">Urgent Medical Notice:</strong> If your child is facing an emergency (such as severe breathing distress, seizures, or acute dehydration), please do not wait. Call 112 or visit the nearest hospital casualty immediately.
           </div>
         </div>
       </div>

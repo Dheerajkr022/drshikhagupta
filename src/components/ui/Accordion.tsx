@@ -38,11 +38,16 @@ export function Accordion({
   };
 
   return (
-    <div className={cn("divide-y divide-borderSubtle rounded-card border border-borderSubtle bg-white overflow-hidden shadow-soft", className)}>
+    <div
+      className={cn(
+        "divide-y divide-borderSubtle/80 rounded-2xl border border-borderSubtle bg-white overflow-hidden shadow-soft",
+        className
+      )}
+    >
       {items.map((item) => {
         const isOpen = openIds.includes(item.id);
         return (
-          <div key={item.id} className="transition-colors hover:bg-brandBlue-pale/40">
+          <div key={item.id} className="transition-colors hover:bg-surface-muted/60">
             <h3>
               <button
                 type="button"
@@ -50,12 +55,12 @@ export function Accordion({
                 aria-expanded={isOpen}
                 aria-controls={`accordion-content-${item.id}`}
                 id={`accordion-btn-${item.id}`}
-                className="flex w-full items-center justify-between py-5 px-6 text-left text-base sm:text-lg font-medium text-navy transition-all focus-visible:outline-none focus-visible:bg-brandBlue-soft/50"
+                className="flex w-full items-center justify-between py-4 sm:py-5 px-5 sm:px-6 text-left text-sm sm:text-base font-semibold text-navy transition-all focus-visible:outline-none focus-visible:bg-brandBlue-soft/50 font-heading"
               >
-                <span>{item.title}</span>
+                <span className="pr-4">{item.title}</span>
                 <ChevronDown
                   className={cn(
-                    "h-5 w-5 shrink-0 text-brandBlue transition-transform duration-200",
+                    "h-4 w-4 shrink-0 text-brandBlue transition-transform duration-200",
                     isOpen && "rotate-180"
                   )}
                   aria-hidden="true"
@@ -68,12 +73,12 @@ export function Accordion({
               aria-labelledby={`accordion-btn-${item.id}`}
               hidden={!isOpen}
               className={cn(
-                "px-6 pb-5 pt-1 text-sm sm:text-base leading-relaxed text-bodyText",
+                "px-5 sm:px-6 pb-5 pt-0 text-xs sm:text-sm leading-relaxed text-bodyText",
                 !isOpen && "hidden"
               )}
             >
               {typeof item.content === "string" ? (
-                <p className="text-bodyText">{item.content}</p>
+                <p className="text-bodyText leading-relaxed">{item.content}</p>
               ) : (
                 item.content
               )}
@@ -84,4 +89,3 @@ export function Accordion({
     </div>
   );
 }
-

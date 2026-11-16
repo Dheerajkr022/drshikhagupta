@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { AlertCircle, Phone, Calendar, MessageSquare, Search, Sparkles, HelpCircle } from "lucide-react";
+import { AlertCircle, Phone, Calendar, Search, HelpCircle } from "lucide-react";
 import { faqsData } from "@/data/faqs";
 import { clinicData } from "@/data/clinic";
 import { doctorData } from "@/data/doctor";
@@ -44,21 +44,20 @@ export default function FAQsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
 
-      <div className="bg-brandBlue-pale/40 border-b border-borderSubtle">
+      <div className="bg-surface-muted/60 border-b border-borderSubtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumbs items={[{ label: "Frequently Asked Questions" }]} />
         </div>
       </div>
 
       {/* Hero Header */}
-      <section className="py-12 sm:py-16 bg-gradient-to-b from-brandBlue-pale/60 via-white to-white border-b border-borderSubtle/60">
+      <section className="py-12 sm:py-16 bg-white border-b border-borderSubtle/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-brandBlue-soft text-brandBlue text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Help & Information Center</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
+            <span className="text-xs font-semibold text-brandBlue uppercase tracking-wider">
+              Parent Help & Guidance Center • Kamla Nagar
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight font-heading">
               Frequently Asked Questions.
             </h1>
             <p className="text-base sm:text-lg text-bodyText leading-relaxed">
@@ -69,7 +68,7 @@ export default function FAQsPage() {
       </section>
 
       {/* Main FAQ Container */}
-      <section className="py-16 bg-brandBlue-pale/30">
+      <section className="py-16 bg-surface-muted/30">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           {/* Search & Category Filter */}
           <div className="space-y-4">
@@ -80,7 +79,7 @@ export default function FAQsPage() {
                 placeholder="Search by topic (e.g. vaccination, timings, newborn, records)..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3.5 rounded-pill border border-borderSubtle bg-white text-sm text-bodyText placeholder:text-bodyText-subtle focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20 outline-none shadow-soft transition-all"
+                className="w-full pl-12 pr-4 py-3.5 rounded-full border border-borderSubtle bg-white text-sm text-bodyText placeholder:text-bodyText-muted focus:border-brandBlue focus:ring-2 focus:ring-brandBlue/20 outline-none shadow-soft transition-all"
               />
             </div>
 
@@ -90,10 +89,10 @@ export default function FAQsPage() {
                 <button
                   key={cat.id}
                   onClick={() => setSelectedCategory(cat.id)}
-                  className={`px-4 py-1.5 rounded-pill text-xs font-semibold transition-all ${
+                  className={`px-4 py-1.5 rounded-full text-xs font-semibold transition-all ${
                     selectedCategory === cat.id
-                      ? "bg-navy text-white shadow-soft"
-                      : "bg-white text-bodyText hover:bg-brandBlue-pale border border-borderSubtle"
+                      ? "bg-brandBlue text-white shadow-soft"
+                      : "bg-white text-bodyText hover:bg-surface-muted border border-borderSubtle"
                   }`}
                 >
                   {cat.label}
@@ -103,8 +102,8 @@ export default function FAQsPage() {
           </div>
 
           {/* Emergency Safety Alert */}
-          <div className="rounded-card bg-status-emergencyBg border border-status-emergency/20 p-5 flex items-start gap-3.5 text-xs sm:text-sm text-bodyText">
-            <AlertCircle className="w-5 h-5 text-status-emergency shrink-0 mt-0.5" />
+          <div className="rounded-2xl bg-amber-50/70 border border-amber-200/80 p-5 flex items-start gap-3.5 text-xs sm:text-sm text-bodyText">
+            <AlertCircle className="w-5 h-5 text-amber-800 shrink-0 mt-0.5" />
             <div>
               <strong className="text-navy font-semibold">In Case of Medical Emergency:</strong>
               <p className="mt-0.5 text-bodyText-muted">
@@ -124,24 +123,24 @@ export default function FAQsPage() {
               defaultOpenId={filteredFaqs[0]?.id}
             />
           ) : (
-            <div className="bg-white rounded-card border border-borderSubtle p-8 text-center text-sm text-bodyText-muted shadow-soft">
+            <div className="bg-white rounded-2xl border border-borderSubtle p-8 text-center text-sm text-bodyText-muted shadow-soft">
               No matching questions found for &ldquo;{searchQuery}&rdquo;. Try another search term or browse by category.
             </div>
           )}
 
           {/* Bottom Help Box with Doctor Thumbnail */}
-          <div className="rounded-[24px] bg-white border border-borderSubtle p-8 shadow-card flex flex-col sm:flex-row items-center gap-6">
-            <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-brandBlue/30 shrink-0">
+          <div className="rounded-2xl bg-white border border-borderSubtle p-8 shadow-card flex flex-col sm:flex-row items-center gap-6">
+            <div className="relative w-14 h-14 rounded-full overflow-hidden border border-brandBlue/20 shrink-0">
               <Image
                 src="/images/doctor/dr-shikha-gupta.jpg"
                 alt="Dr. Shikha Gupta, Consultant Paediatrician in Kamla Nagar, Delhi"
                 fill
-                sizes="64px"
+                sizes="56px"
                 className="object-cover object-center"
               />
             </div>
             <div className="space-y-1 text-center sm:text-left flex-1">
-              <h3 className="text-lg font-bold text-navy">
+              <h3 className="text-base sm:text-lg font-bold text-navy font-heading">
                 Have a specific question about your child?
               </h3>
               <p className="text-xs sm:text-sm text-bodyText-muted">
@@ -149,11 +148,19 @@ export default function FAQsPage() {
               </p>
             </div>
             <div className="flex flex-col sm:flex-row items-center gap-2.5 shrink-0">
-              <Button href="/contact" variant="primary" className="rounded-pill px-5">
+              <Button
+                href="/contact"
+                variant="primary"
+                className="rounded-full bg-brandBlue hover:bg-brandBlue-hover text-white shadow-soft font-semibold text-xs px-5"
+              >
                 <span>Contact Desk</span>
               </Button>
-              <Button href={`tel:${clinicData.contact.phone}`} variant="outline" className="rounded-pill px-5">
-                <Phone className="w-4 h-4 mr-1.5 text-brandBlue" />
+              <Button
+                href={`tel:${clinicData.contact.phone}`}
+                variant="outline"
+                className="rounded-full bg-white border-borderSubtle text-navy hover:text-brandBlue hover:border-brandBlue shadow-soft font-semibold text-xs px-5"
+              >
+                <Phone className="w-3.5 h-3.5 mr-1.5 text-brandBlue" />
                 <span>Call Us</span>
               </Button>
             </div>

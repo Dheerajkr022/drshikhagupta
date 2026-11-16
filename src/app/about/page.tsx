@@ -13,7 +13,7 @@ import {
   ShieldCheck,
   Star,
   MapPin,
-  Sparkles,
+  ArrowRight,
 } from "lucide-react";
 import { doctorData } from "@/data/doctor";
 import { clinicData } from "@/data/clinic";
@@ -40,22 +40,21 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
       />
 
-      <div className="bg-brandBlue-pale/40 border-b border-borderSubtle">
+      <div className="bg-surface-muted/60 border-b border-borderSubtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumbs items={[{ label: "About Dr. Shikha Gupta" }]} />
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="py-12 sm:py-16 bg-gradient-to-b from-brandBlue-pale/60 via-white to-white border-b border-borderSubtle/60">
+      <section className="py-12 sm:py-16 bg-white border-b border-borderSubtle/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-brandBlue-soft text-brandBlue text-xs font-bold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
-                <span>Consultant Paediatrician • Kamla Nagar, Delhi</span>
-              </div>
-              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
+              <span className="text-xs font-semibold text-brandBlue uppercase tracking-wider">
+                Consultant Paediatrician • Kamla Nagar, Delhi
+              </span>
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight font-heading">
                 Dr. Shikha Gupta — Consultant Paediatrician & Child Specialist.
               </h1>
               <p className="text-base sm:text-lg text-bodyText leading-relaxed max-w-2xl">
@@ -68,7 +67,7 @@ export default function AboutPage() {
                 href="/appointment"
                 variant="primary"
                 size="lg"
-                className="w-full justify-center rounded-pill shadow-glow bg-gradient-to-r from-brandBlue to-brandCyan"
+                className="w-full justify-center rounded-full bg-brandBlue hover:bg-brandBlue-hover text-white shadow-soft font-semibold text-xs sm:text-sm"
               >
                 <Calendar className="w-4 h-4 mr-2" />
                 <span>Request Appointment</span>
@@ -77,7 +76,7 @@ export default function AboutPage() {
                 href={`tel:${clinicData.contact.phone}`}
                 variant="outline"
                 size="lg"
-                className="w-full justify-center rounded-pill bg-white"
+                className="w-full justify-center rounded-full bg-white border-borderSubtle text-navy hover:text-brandBlue hover:border-brandBlue shadow-soft font-semibold text-xs sm:text-sm"
               >
                 <Phone className="w-4 h-4 mr-2 text-brandBlue" />
                 <span>Call Reception</span>
@@ -88,13 +87,13 @@ export default function AboutPage() {
       </section>
 
       {/* Doctor Profile & Full Biography */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-surface-muted/30 border-b border-borderSubtle/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             {/* Left Card: Doctor Overview with Real Photo */}
             <div className="lg:col-span-5 space-y-6">
-              <div className="rounded-[28px] overflow-hidden border border-borderSubtle bg-white shadow-card p-4 space-y-6">
-                <div className="relative aspect-[4/4.2] w-full rounded-[20px] overflow-hidden bg-brandBlue-pale">
+              <div className="rounded-2xl overflow-hidden border border-borderSubtle bg-white shadow-card p-5 space-y-5">
+                <div className="relative aspect-[4/4.4] w-full rounded-xl overflow-hidden bg-brandBlue-pale/50">
                   <Image
                     src="/images/doctor/dr-shikha-gupta.jpg"
                     alt="Dr. Shikha Gupta, Consultant Paediatrician (MBBS VMMC, MD Pediatrics RML Hospital) at Sethi Multispecialty Clinic, Kamla Nagar, Delhi"
@@ -105,25 +104,26 @@ export default function AboutPage() {
                   />
                 </div>
 
-                <div className="px-2 space-y-4">
-                  <div>
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-brandBlue bg-brandBlue-soft px-2.5 py-0.5 rounded-pill inline-block mb-1">
+                <div className="space-y-3">
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs font-semibold text-brandBlue bg-brandBlue-soft px-2.5 py-0.5 rounded-full">
                       Consultant Paediatrician
                     </span>
-                    <h2 className="text-xl font-bold text-navy">{doctorData.name}</h2>
+                    <span className="flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200">
+                      <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                      DMC Registered
+                    </span>
+                  </div>
+                  <div>
+                    <h2 className="text-xl font-bold text-navy font-heading">{doctorData.name}</h2>
                     <p className="text-xs text-brandBlue font-semibold mt-0.5">{doctorData.credentials}</p>
                   </div>
 
-                  <div className="flex items-center gap-2 text-xs text-status-success font-semibold">
-                    <ShieldCheck className="w-4 h-4 shrink-0" />
-                    <span>State Medical Council Registered Paediatrician</span>
-                  </div>
-
-                  <div className="rounded-element bg-brandBlue-pale/60 p-4 border border-borderSubtle space-y-2">
+                  <div className="rounded-xl bg-surface-muted p-4 border border-borderSubtle/60 space-y-2">
                     <p className="text-xs font-bold text-navy uppercase tracking-wider">
                       Specialised Clinical Exposure
                     </p>
-                    <ul className="text-xs text-bodyText-muted space-y-1.5">
+                    <ul className="text-xs text-bodyText space-y-1.5">
                       {doctorData.subspecialtyExposure.map((item) => (
                         <li key={item} className="flex items-center gap-2">
                           <CheckCircle2 className="w-3.5 h-3.5 text-brandBlue shrink-0" />
@@ -139,7 +139,7 @@ export default function AboutPage() {
             {/* Right Column: Biography & Background */}
             <div className="lg:col-span-7 space-y-8">
               <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-navy mb-4">
+                <h2 className="text-2xl sm:text-3xl font-extrabold text-navy mb-4 font-heading">
                   Clinical Training & Background
                 </h2>
                 <div className="space-y-4 text-base text-bodyText leading-relaxed">
@@ -151,20 +151,20 @@ export default function AboutPage() {
 
               {/* Verified Qualifications Timeline */}
               <div className="pt-6 border-t border-borderSubtle">
-                <h3 className="text-xl font-bold text-navy mb-4">
+                <h3 className="text-xl font-bold text-navy mb-4 font-heading">
                   Verified Academic & Hospital Experience
                 </h3>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {doctorData.qualifications.map((q, idx) => (
                     <div
                       key={idx}
-                      className="p-4 sm:p-5 rounded-card border border-borderSubtle bg-gradient-to-b from-brandBlue-pale/20 to-white flex items-start gap-3.5 hover:border-brandBlue/30 transition-all shadow-soft"
+                      className="p-4 sm:p-5 rounded-2xl border border-borderSubtle bg-white flex items-start gap-4 hover:border-brandBlue/30 transition-all shadow-soft"
                     >
-                      <div className="w-10 h-10 rounded-element bg-brandBlue-soft flex items-center justify-center shrink-0 mt-0.5 text-brandBlue">
+                      <div className="w-10 h-10 rounded-xl bg-brandBlue-soft flex items-center justify-center shrink-0 text-brandBlue border border-brandBlue/15">
                         <GraduationCap className="w-5 h-5" />
                       </div>
-                      <div>
-                        <h4 className="font-bold text-navy text-base">
+                      <div className="min-w-0">
+                        <h4 className="font-bold text-navy text-sm sm:text-base font-heading">
                           {q.degree}
                         </h4>
                         <p className="text-xs sm:text-sm text-bodyText font-medium mt-0.5">
@@ -186,31 +186,37 @@ export default function AboutPage() {
       </section>
 
       {/* Care Philosophy */}
-      <section className="py-16 sm:py-20 bg-brandBlue-pale/40 border-y border-borderSubtle">
+      <section className="py-16 sm:py-20 bg-white border-b border-borderSubtle/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Approach to Care"
-            title="Helping Parents Feel Informed, Not Overwhelmed."
-            description="Our consultations are built on mutual respect, transparent medical explanations, and supporting parents with practical, actionable guidance."
-            align="center"
-            className="mb-12"
-          />
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="text-xs font-semibold text-brandBlue uppercase tracking-wider">
+              Approach to Care
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight leading-tight mt-3 font-heading">
+              Helping Parents Feel Informed, Not Overwhelmed.
+            </h2>
+            <p className="text-base text-bodyText mt-3 leading-relaxed">
+              Our consultations are built on mutual respect, transparent medical explanations, and supporting parents with practical, actionable guidance.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {doctorData.carePhilosophy.map((item, idx) => (
               <div
                 key={idx}
-                className="bg-white rounded-card border border-borderSubtle p-6 sm:p-7 shadow-soft hover:shadow-card transition-all"
+                className="bg-white rounded-2xl border border-borderSubtle p-6 sm:p-7 shadow-soft hover:shadow-card transition-all flex items-start gap-4"
               >
-                <div className="w-9 h-9 rounded-full bg-brandBlue text-white flex items-center justify-center font-bold text-sm mb-4">
+                <div className="w-8 h-8 rounded-lg bg-brandBlue-soft text-brandBlue flex items-center justify-center font-bold text-xs shrink-0 font-mono border border-brandBlue/15">
                   0{idx + 1}
                 </div>
-                <h3 className="text-lg font-bold text-navy mb-2">
-                  {item.title}
-                </h3>
-                <p className="text-sm text-bodyText-muted leading-relaxed">
-                  {item.description}
-                </p>
+                <div className="space-y-1.5 min-w-0">
+                  <h3 className="text-base sm:text-lg font-bold text-navy font-heading">
+                    {item.title}
+                  </h3>
+                  <p className="text-xs sm:text-sm text-bodyText leading-relaxed">
+                    {item.description}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
@@ -218,39 +224,42 @@ export default function AboutPage() {
       </section>
 
       {/* Why Families Visit */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-surface-muted/30">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Care Standards"
-            title="What Families Can Expect"
-            className="mb-8"
-          />
+          <div className="mb-8">
+            <span className="text-xs font-semibold text-brandBlue uppercase tracking-wider">
+              Care Standards
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-navy mt-2 font-heading">
+              What Families Can Expect During Every Visit
+            </h2>
+          </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {doctorData.whyFamiliesVisit.map((reason, i) => (
               <div
                 key={i}
-                className="flex items-start gap-3 p-4 rounded-card border border-borderSubtle bg-white shadow-soft"
+                className="flex items-start gap-3 p-4 rounded-xl border border-borderSubtle bg-white shadow-soft"
               >
-                <CheckCircle2 className="w-5 h-5 text-brandBlue shrink-0 mt-0.5" />
-                <span className="text-sm text-bodyText font-medium">{reason}</span>
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
+                <span className="text-xs sm:text-sm text-bodyText font-medium">{reason}</span>
               </div>
             ))}
           </div>
 
           {/* CTA Box */}
-          <div className="mt-12 rounded-[24px] bg-gradient-to-r from-navy via-navy-light to-navy text-white p-8 sm:p-10 text-center space-y-4 shadow-xl">
-            <h3 className="text-2xl sm:text-3xl font-extrabold">
+          <div className="mt-12 rounded-2xl bg-navy text-white p-8 sm:p-10 text-center space-y-4 shadow-card">
+            <h3 className="text-2xl sm:text-3xl font-extrabold font-heading">
               Let&apos;s Talk About Your Child&apos;s Care.
             </h3>
-            <p className="text-sm sm:text-base text-white/90 max-w-lg mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-white/80 max-w-lg mx-auto leading-relaxed">
               Whether you are scheduling your baby&apos;s early milestone check, an immunisation update, or have questions about nutrition, we are here to support you.
             </p>
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button
                 href="/appointment"
                 variant="primary"
-                className="rounded-pill bg-gradient-to-r from-brandBlue to-brandCyan shadow-glow px-6"
+                className="rounded-full bg-brandBlue hover:bg-brandBlue-hover text-white shadow-soft font-semibold text-xs px-6"
               >
                 <Calendar className="w-4 h-4 mr-2" />
                 <span>Request an Appointment</span>
@@ -258,7 +267,7 @@ export default function AboutPage() {
               <Button
                 href="/contact"
                 variant="outline"
-                className="rounded-pill bg-white/10 hover:bg-white/20 text-white border-white/20 px-6"
+                className="rounded-full bg-white/10 hover:bg-white/20 text-white border-white/20 px-6 font-semibold text-xs"
               >
                 <span>View Clinic Timings & Location</span>
               </Button>

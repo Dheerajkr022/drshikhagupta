@@ -7,7 +7,7 @@ import {
   AlertTriangle,
   CheckCircle2,
   ArrowRight,
-  Sparkles,
+  ShieldCheck,
 } from "lucide-react";
 import { servicesData } from "@/data/services";
 import { clinicData } from "@/data/clinic";
@@ -15,7 +15,6 @@ import { constructMetadata } from "@/lib/metadata";
 import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { ServiceCard } from "@/components/services/ServiceCard";
 import { Button } from "@/components/ui/Button";
-import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = constructMetadata({
   title: "Paediatric Services in Kamla Nagar, Delhi | Dr. Shikha Gupta",
@@ -27,21 +26,20 @@ export const metadata: Metadata = constructMetadata({
 export default function ServicesPage() {
   return (
     <>
-      <div className="bg-brandBlue-pale/40 border-b border-borderSubtle">
+      <div className="bg-surface-muted/60 border-b border-borderSubtle">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Breadcrumbs items={[{ label: "Services" }]} />
         </div>
       </div>
 
       {/* Header */}
-      <section className="py-12 sm:py-16 bg-gradient-to-b from-brandBlue-pale/60 via-white to-white border-b border-borderSubtle/60">
+      <section className="py-12 sm:py-16 bg-white border-b border-borderSubtle/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-brandBlue-soft text-brandBlue text-xs font-bold uppercase tracking-wider">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Comprehensive Paediatric Clinical Practice • North Delhi</span>
-            </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
+            <span className="text-xs font-semibold text-brandBlue uppercase tracking-wider">
+              Comprehensive Paediatric Clinical Practice • North Delhi
+            </span>
+            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight font-heading">
               Paediatric Care for Every Stage of Childhood.
             </h1>
             <p className="text-base sm:text-lg text-bodyText leading-relaxed">
@@ -52,7 +50,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid with Real Photography */}
-      <section className="py-16 bg-brandBlue-pale/30">
+      <section className="py-16 bg-surface-muted/40">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {servicesData.map((service, index) => (
@@ -65,8 +63,8 @@ export default function ServicesPage() {
           </div>
 
           {/* Emergency Disclaimer Banner */}
-          <div className="mt-12 rounded-card bg-status-emergencyBg border border-status-emergency/20 p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <div className="w-10 h-10 rounded-full bg-status-emergency/10 flex items-center justify-center shrink-0 text-status-emergency">
+          <div className="mt-12 rounded-2xl bg-amber-50/70 border border-amber-200/80 p-5 sm:p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+            <div className="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center shrink-0 text-amber-800 border border-amber-200">
               <AlertTriangle className="w-5 h-5" />
             </div>
             <div className="text-xs sm:text-sm text-bodyText leading-relaxed flex-1">
@@ -74,7 +72,7 @@ export default function ServicesPage() {
             </div>
             <a
               href="tel:112"
-              className="text-xs font-bold text-status-emergency underline shrink-0 whitespace-nowrap"
+              className="text-xs font-bold text-amber-900 underline shrink-0 whitespace-nowrap hover:text-navy transition-colors"
             >
               Emergency Care Advice
             </a>
@@ -83,60 +81,71 @@ export default function ServicesPage() {
       </section>
 
       {/* What Parents Can Expect During Consultations */}
-      <section className="py-16 bg-white border-t border-borderSubtle">
+      <section className="py-16 bg-white border-t border-borderSubtle/60">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionHeading
-            eyebrow="Consultation Standards"
-            title="How Consultations Work"
-            description="Clear steps designed to ensure you get the most out of your visit with Dr. Shikha Gupta."
-            className="mb-10"
-          />
+          <div className="mb-10 text-center max-w-2xl mx-auto">
+            <span className="text-xs font-semibold text-brandBlue uppercase tracking-wider">
+              Consultation Standards
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-navy mt-2 font-heading">
+              How Consultations Work
+            </h2>
+            <p className="text-xs sm:text-sm text-bodyText-muted mt-2">
+              Clear steps designed to ensure you get the most out of your visit with Dr. Shikha Gupta.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="p-6 rounded-card border border-borderSubtle bg-white shadow-soft">
-              <span className="text-xs font-bold text-white bg-brandBlue px-2.5 py-1 rounded-pill inline-block mb-3">
+            <div className="p-6 rounded-2xl border border-borderSubtle bg-white shadow-soft">
+              <span className="text-xs font-bold text-brandBlue bg-brandBlue-soft px-2.5 py-1 rounded-full inline-block mb-3 font-mono">
                 Step 01
               </span>
-              <h3 className="font-bold text-navy text-lg mb-2">Listen & Understand</h3>
-              <p className="text-sm text-bodyText-muted leading-relaxed">
+              <h3 className="font-bold text-navy text-base sm:text-lg mb-2 font-heading">
+                Listen & Understand
+              </h3>
+              <p className="text-xs sm:text-sm text-bodyText-muted leading-relaxed">
                 We begin by listening to your child&apos;s history, current symptoms, feeding habits, and your questions as a parent.
               </p>
             </div>
 
-            <div className="p-6 rounded-card border border-borderSubtle bg-white shadow-soft">
-              <span className="text-xs font-bold text-white bg-brandBlue px-2.5 py-1 rounded-pill inline-block mb-3">
+            <div className="p-6 rounded-2xl border border-borderSubtle bg-white shadow-soft">
+              <span className="text-xs font-bold text-brandBlue bg-brandBlue-soft px-2.5 py-1 rounded-full inline-block mb-3 font-mono">
                 Step 02
               </span>
-              <h3 className="font-bold text-navy text-lg mb-2">Gentle Examination</h3>
-              <p className="text-sm text-bodyText-muted leading-relaxed">
+              <h3 className="font-bold text-navy text-base sm:text-lg mb-2 font-heading">
+                Gentle Examination
+              </h3>
+              <p className="text-xs sm:text-sm text-bodyText-muted leading-relaxed">
                 A thorough, child-friendly physical examination, checking growth charts and vital signs in a calm atmosphere.
               </p>
             </div>
 
-            <div className="p-6 rounded-card border border-borderSubtle bg-white shadow-soft">
-              <span className="text-xs font-bold text-white bg-brandBlue px-2.5 py-1 rounded-pill inline-block mb-3">
+            <div className="p-6 rounded-2xl border border-borderSubtle bg-white shadow-soft">
+              <span className="text-xs font-bold text-brandBlue bg-brandBlue-soft px-2.5 py-1 rounded-full inline-block mb-3 font-mono">
                 Step 03
               </span>
-              <h3 className="font-bold text-navy text-lg mb-2">Actionable Plan</h3>
-              <p className="text-sm text-bodyText-muted leading-relaxed">
+              <h3 className="font-bold text-navy text-base sm:text-lg mb-2 font-heading">
+                Actionable Plan
+              </h3>
+              <p className="text-xs sm:text-sm text-bodyText-muted leading-relaxed">
                 Clear recommendations, age-appropriate guidance, rational prescription if indicated, and instructions on when to follow up.
               </p>
             </div>
           </div>
 
           {/* CTA Box */}
-          <div className="mt-14 rounded-[24px] bg-gradient-to-r from-navy via-navy-light to-navy text-white p-8 sm:p-10 text-center space-y-4 shadow-xl">
-            <h3 className="text-2xl sm:text-3xl font-extrabold">
+          <div className="mt-12 rounded-2xl bg-navy text-white p-8 sm:p-10 text-center space-y-4 shadow-card">
+            <h3 className="text-2xl sm:text-3xl font-extrabold font-heading">
               Ready to Discuss Your Child&apos;s Health?
             </h3>
-            <p className="text-sm sm:text-base text-white/90 max-w-xl mx-auto leading-relaxed">
+            <p className="text-xs sm:text-sm text-white/80 max-w-xl mx-auto leading-relaxed">
               Schedule an in-person consultation at our Kamla Nagar clinic or call our desk with any routine questions.
             </p>
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
               <Button
                 href="/appointment"
                 variant="primary"
-                className="rounded-pill bg-gradient-to-r from-brandBlue to-brandCyan shadow-glow px-6"
+                className="rounded-full bg-brandBlue hover:bg-brandBlue-hover text-white shadow-soft font-semibold text-xs px-6"
               >
                 <Calendar className="w-4 h-4 mr-2" />
                 <span>Request an Appointment</span>
@@ -144,9 +153,9 @@ export default function ServicesPage() {
               <Button
                 href={`tel:${clinicData.contact.phone}`}
                 variant="secondary"
-                className="rounded-pill bg-white text-navy hover:bg-brandBlue-pale px-6"
+                className="rounded-full bg-white/10 hover:bg-white/20 text-white border-white/20 px-6 font-semibold text-xs"
               >
-                <Phone className="w-4 h-4 mr-2 text-brandBlue" />
+                <Phone className="w-4 h-4 mr-2 text-brandCyan-light" />
                 <span>Call {clinicData.contact.phoneDisplay}</span>
               </Button>
             </div>
