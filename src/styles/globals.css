@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-navy: #0F2B48;
+  --primary-blue: #1D68BD;
+  --soft-blue: #EAF3FC;
+  --pale-blue: #F3F8FD;
+  --body-text: #2D3748;
+  --muted-text: #64748B;
+  --border-subtle: #E2E8F0;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: #FFFFFF;
+    color: var(--body-text);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #1D68BD;
+    color: #FFFFFF;
+  }
+
+  /* Accessible focus indicator */
+  :focus-visible {
+    outline: 2px solid #1D68BD;
+    outline-offset: 3px;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .glass-panel {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+  }
+
+  .glass-panel-dark {
+    background: rgba(15, 43, 72, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+  }
+
+  .mesh-gradient-hero {
+    background: radial-gradient(circle at 10% 20%, rgba(234, 243, 252, 0.9) 0%, transparent 40%),
+                radial-gradient(circle at 90% 30%, rgba(224, 242, 254, 0.7) 0%, transparent 50%),
+                radial-gradient(circle at 50% 90%, rgba(243, 248, 253, 0.8) 0%, transparent 60%);
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
