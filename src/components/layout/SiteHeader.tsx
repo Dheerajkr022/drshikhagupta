@@ -148,11 +148,11 @@ export function SiteHeader() {
             </span>
           </div>
 
-          {/* Right: Emergency Advisory & Quick Call */}
+          {/* Right: Location Landmark & Quick Call */}
           <div className="flex items-center gap-4 text-white/90 text-xs">
             <span className="text-white/70 flex items-center gap-1 text-[11px]">
-              <AlertCircle className="w-3.5 h-3.5 text-amber-400" />
-              Emergency? Visit hospital casualty directly
+              <MapPin className="w-3.5 h-3.5 text-brandCyan-light" />
+              Bhatia Chowk, Kamla Nagar, Delhi
             </span>
             <span className="text-white/40">•</span>
             <a
@@ -400,14 +400,6 @@ export function SiteHeader() {
 
             {/* Scrollable Navigation Body */}
             <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
-              {/* Emergency Banner Alert */}
-              <div className="p-2.5 rounded-element bg-amber-50 border border-amber-200/80 text-[11px] text-amber-900 flex items-start gap-2">
-                <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
-                <span className="leading-tight">
-                  <strong>Emergency?</strong> Please visit hospital casualty directly.
-                </span>
-              </div>
-
               {/* Navigation Links */}
               <nav className="space-y-1">
                 {/* Home */}

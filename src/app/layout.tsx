@@ -43,6 +43,23 @@ export const metadata: Metadata = {
     description:
       "Consultant Paediatrician in Kamla Nagar, Delhi. Preventive healthcare, routine immunisation, well-baby care, and growth monitoring.",
     siteName: "Dr. Shikha Gupta's Child Clinic",
+    images: [
+      {
+        url: "https://drshikhagupta.com/api/og?title=Dr.%20Shikha%20Gupta%20%E2%80%94%20Consultant%20Paediatrician%20in%20Kamla%20Nagar&desc=MBBS%20(VMMC)%20%E2%80%A2%20MD%20Pediatrics%20(RML%20Hospital).%20Dedicated%20child%20specialist%20in%20Kamla%20Nagar%2C%20North%20Delhi.",
+        width: 1200,
+        height: 630,
+        alt: "Dr. Shikha Gupta — Consultant Paediatrician in Kamla Nagar, Delhi",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dr. Shikha Gupta | Paediatrician in Kamla Nagar, Delhi",
+    description:
+      "Consultant Paediatrician in Kamla Nagar, Delhi. Preventive healthcare, routine immunisation, well-baby care, and growth monitoring.",
+    images: [
+      "https://drshikhagupta.com/api/og?title=Dr.%20Shikha%20Gupta%20%E2%80%94%20Consultant%20Paediatrician%20in%20Kamla%20Nagar&desc=MBBS%20(VMMC)%20%E2%80%A2%20MD%20Pediatrics%20(RML%20Hospital).%20Dedicated%20child%20specialist%20in%20Kamla%20Nagar%2C%20North%20Delhi.",
+    ],
   },
 };
 
