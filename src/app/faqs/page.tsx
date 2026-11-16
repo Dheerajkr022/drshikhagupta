@@ -137,7 +137,7 @@ export default function FAQsPage() {
                 alt="Dr. Shikha Gupta"
                 fill
                 sizes="64px"
-                className="object-cover object-top"
+                className="object-cover object-center"
               />
             </div>
             <div className="space-y-1 text-center sm:text-left flex-1">

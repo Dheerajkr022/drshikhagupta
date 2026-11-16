@@ -23,13 +23,13 @@ export function DoctorPreviewSection() {
           <div className="lg:col-span-5 relative">
             <div className="relative mx-auto max-w-sm sm:max-w-md lg:max-w-none">
               <div className="relative rounded-[28px] overflow-hidden border-2 border-borderSubtle bg-white shadow-xl">
-                <div className="relative aspect-[4/4.2] w-full overflow-hidden bg-brandBlue-pale">
+                <div className="relative aspect-[4/4.4] w-full overflow-hidden bg-brandBlue-pale">
                   <Image
                     src="/images/doctor/dr-shikha-gupta.jpg"
                     alt="Dr. Shikha Gupta, Paediatrician"
                     fill
                     sizes="(max-width: 768px) 100vw, 450px"
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 </div>
 

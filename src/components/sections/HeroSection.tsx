@@ -131,7 +131,7 @@ export function HeroSection() {
               <div className="absolute -inset-3 rounded-[32px] bg-gradient-to-tr from-brandBlue/20 via-brandCyan/20 to-brandBlue-soft/40 -rotate-1 -z-10 blur-sm" />
 
               {/* Floating Badge 1: Top Right (Verified Doctor Badge) */}
-              <div className="absolute -top-4 -right-2 sm:-right-4 bg-white/95 backdrop-blur-md rounded-element p-3 shadow-card border border-borderSubtle flex items-center gap-2.5 animate-float-slow z-20">
+              <div className="absolute -top-3 -right-2 sm:-right-4 bg-white/95 backdrop-blur-md rounded-element p-3 shadow-card border border-borderSubtle flex items-center gap-2.5 animate-float-slow z-20">
                 <div className="w-9 h-9 rounded-full bg-amber-50 border border-amber-200 flex items-center justify-center text-amber-500 shrink-0">
                   <Star className="w-4 h-4 fill-amber-400" />
                 </div>
@@ -142,7 +142,7 @@ export function HeroSection() {
               </div>
 
               {/* Floating Badge 2: Top Left (Hospital Credentials) */}
-              <div className="absolute top-12 -left-3 sm:-left-6 bg-white/95 backdrop-blur-md rounded-element p-3 shadow-card border border-borderSubtle flex items-center gap-2.5 animate-float-delayed z-20 max-w-[210px]">
+              <div className="absolute top-8 -left-3 sm:-left-6 bg-white/95 backdrop-blur-md rounded-element p-3 shadow-card border border-borderSubtle flex items-center gap-2.5 animate-float-delayed z-20 max-w-[210px]">
                 <div className="w-8 h-8 rounded-full bg-brandBlue-soft flex items-center justify-center text-brandBlue shrink-0">
                   <ShieldCheck className="w-4 h-4" />
                 </div>
@@ -155,14 +155,14 @@ export function HeroSection() {
               {/* Main Photo Card Container with Clean Profile Plate */}
               <div className="relative rounded-[28px] overflow-hidden bg-white border-2 border-white shadow-2xl">
                 {/* Doctor Portrait - Clean and Unobstructed */}
-                <div className="relative aspect-[4/4.2] w-full overflow-hidden bg-brandBlue-pale">
+                <div className="relative aspect-[4/4.4] w-full overflow-hidden bg-brandBlue-pale">
                   <Image
                     src="/images/doctor/dr-shikha-gupta.jpg"
                     alt="Dr. Shikha Gupta, Consultant Paediatrician in Kamla Nagar, Delhi"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"
-                    className="object-cover object-top hover:scale-103 transition-transform duration-500"
+                    className="object-cover object-center hover:scale-103 transition-transform duration-500"
                   />
                 </div>
 

@@ -65,7 +65,7 @@ export default function AppointmentPage() {
                     alt="Dr. Shikha Gupta"
                     fill
                     sizes="56px"
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 </div>
                 <div>

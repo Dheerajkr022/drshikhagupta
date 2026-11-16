@@ -94,14 +94,14 @@ export default function AboutPage() {
             {/* Left Card: Doctor Overview with Real Photo */}
             <div className="lg:col-span-5 space-y-6">
               <div className="rounded-[28px] overflow-hidden border border-borderSubtle bg-white shadow-card p-4 space-y-6">
-                <div className="relative aspect-[4/4.2] w-full rounded-[20px] overflow-hidden bg-brandBlue-pale">
+                <div className="relative aspect-[4/4.4] w-full rounded-[20px] overflow-hidden bg-brandBlue-pale">
                   <Image
                     src="/images/doctor/dr-shikha-gupta.jpg"
                     alt="Dr. Shikha Gupta, Consultant Paediatrician"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover object-top"
+                    className="object-cover object-center"
                   />
                 </div>
 

@@ -111,7 +111,7 @@ export default function ReviewsPage() {
                 alt="Dr. Shikha Gupta"
                 fill
                 sizes="112px"
-                className="object-cover object-top"
+                className="object-cover object-center"
               />
             </div>
             <div className="space-y-3 text-center md:text-left flex-1">
