@@ -17,14 +17,14 @@ export function SiteFooter() {
           <div className="space-y-4">
             <Link
               href="/"
-              className="inline-block bg-white p-2.5 rounded-element shadow-soft hover:opacity-95 transition-opacity"
+              className="inline-block bg-white p-3 rounded-card shadow-soft hover:opacity-95 transition-opacity"
             >
-              <div className="relative h-11 w-44">
+              <div className="relative h-12 w-48 sm:h-14 sm:w-56">
                 <Image
                   src="/images/logo/logo.png"
                   alt="Dr. Shikha Gupta Logo"
                   fill
-                  sizes="176px"
+                  sizes="224px"
                   className="object-contain object-left"
                 />
               </div>

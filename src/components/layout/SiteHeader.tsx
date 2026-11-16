@@ -22,6 +22,7 @@ import {
   HelpCircle,
   MapPin,
   ChevronRight,
+  ArrowRight,
 } from "lucide-react";
 import { clinicData } from "@/data/clinic";
 import { doctorData } from "@/data/doctor";
@@ -78,6 +79,51 @@ export function SiteHeader() {
     { label: "Reviews", href: "/reviews" },
     { label: "FAQs", href: "/faqs" },
     { label: "Contact", href: "/contact" },
+  ];
+
+  const dropdownServices = [
+    {
+      title: "Well-Baby Care",
+      desc: "Infant health & feeding",
+      slug: "well-baby-care",
+      image: "/images/services/well-baby.jpg",
+    },
+    {
+      title: "Child Vaccination",
+      desc: "IAP & national schedules",
+      slug: "vaccination",
+      image: "/images/services/vaccination.jpg",
+    },
+    {
+      title: "Growth & Milestones",
+      desc: "WHO percentile tracking",
+      slug: "growth-development",
+      image: "/images/services/growth.jpg",
+    },
+    {
+      title: "Childhood Illness",
+      desc: "Fever, cough & viral care",
+      slug: "childhood-illness",
+      image: "/images/services/childhood-illness.jpg",
+    },
+    {
+      title: "Adolescent Care",
+      desc: "Teenage health & puberty",
+      slug: "adolescent-care",
+      image: "/images/services/adolescent.jpg",
+    },
+    {
+      title: "Parental Guidance",
+      desc: "Behaviour & sleep routines",
+      slug: "parental-counselling",
+      image: "/images/services/parenting.jpg",
+    },
+    {
+      title: "Breastfeeding Support",
+      desc: "Latch & lactation guidance",
+      slug: "breastfeeding-support",
+      image: "/images/services/breastfeeding.jpg",
+    },
   ];
 
   const whatsappUrl = `https://wa.me/${clinicData.contact.whatsappNumber}?text=${encodeURIComponent(
@@ -141,10 +187,10 @@ export function SiteHeader() {
                 <Image
                   src="/images/logo/logo.png"
                   alt="Dr. Shikha Gupta - Child Clinic Logo"
-                  width={240}
-                  height={117}
+                  width={260}
+                  height={127}
                   priority
-                  className="h-11 sm:h-13 md:h-14 w-auto object-contain"
+                  className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-all"
                 />
               </div>
             </Link>
@@ -187,46 +233,58 @@ export function SiteHeader() {
                         />
                       </Link>
 
-                      {/* Dropdown Menu */}
+                      {/* Dropdown Menu - Sleek, Compact 2-Column Grid (Zero Overflow, Fast to Scan) */}
                       {isServicesOpen && (
                         <div
-                          className="absolute left-0 top-full w-80 pt-2 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+                          className="absolute left-0 top-full w-[490px] pt-2 z-50 animate-in fade-in slide-in-from-top-1.5 duration-150"
                           role="menu"
                         >
-                          <div className="bg-white rounded-card border border-borderSubtle shadow-dropdown p-2.5">
-                            <Link
-                              href="/services"
-                              className="flex items-center justify-between px-3 py-2 text-xs font-bold text-brandBlue uppercase tracking-wider hover:bg-brandBlue-soft rounded-element transition-colors mb-1"
-                            >
-                              <span>All Paediatric Care Overview</span>
-                              <span>→</span>
-                            </Link>
-                            <div className="h-px bg-borderSubtle mb-1.5" />
-                            {servicesData.map((service) => (
+                          <div className="bg-white rounded-[20px] border border-borderSubtle shadow-dropdown p-2.5">
+                            <div className="grid grid-cols-2 gap-1.5">
+                              {dropdownServices.map((s) => (
+                                <Link
+                                  key={s.slug}
+                                  href={`/services/${s.slug}`}
+                                  className="group flex items-center gap-2.5 p-2 rounded-xl text-bodyText hover:bg-brandBlue-pale/70 hover:text-navy transition-all duration-150"
+                                >
+                                  <div className="relative w-8 h-8 rounded-lg overflow-hidden shrink-0 border border-borderSubtle bg-brandBlue-pale shadow-soft">
+                                    <Image
+                                      src={s.image}
+                                      alt=""
+                                      fill
+                                      sizes="32px"
+                                      className="object-cover group-hover:scale-110 transition-transform duration-300"
+                                    />
+                                  </div>
+                                  <div className="min-w-0 flex-1">
+                                    <p className="font-bold text-navy group-hover:text-brandBlue transition-colors text-xs leading-tight">
+                                      {s.title}
+                                    </p>
+                                    <p className="text-[11px] text-bodyText-muted leading-tight mt-0.5 truncate">
+                                      {s.desc}
+                                    </p>
+                                  </div>
+                                </Link>
+                              ))}
+
+                              {/* 8th Card: View All Services CTA */}
                               <Link
-                                key={service.slug}
-                                href={`/services/${service.slug}`}
-                                className="group flex items-center gap-3 px-3 py-2 text-xs sm:text-sm text-bodyText hover:text-navy hover:bg-brandBlue-pale rounded-element transition-colors"
+                                href="/services"
+                                className="group flex items-center gap-2.5 p-2 rounded-xl bg-brandBlue-pale/50 hover:bg-brandBlue text-brandBlue hover:text-white transition-all duration-150 border border-brandBlue/15 hover:border-brandBlue"
                               >
-                                <div className="relative w-8 h-8 rounded-element overflow-hidden shrink-0 border border-borderSubtle bg-brandBlue-pale">
-                                  <Image
-                                    src={service.image}
-                                    alt=""
-                                    fill
-                                    sizes="32px"
-                                    className="object-cover group-hover:scale-110 transition-transform duration-300"
-                                  />
+                                <div className="w-8 h-8 rounded-lg bg-brandBlue text-white group-hover:bg-white group-hover:text-brandBlue flex items-center justify-center shrink-0 transition-colors shadow-soft">
+                                  <ArrowRight className="w-3.5 h-3.5 transform group-hover:translate-x-0.5 transition-transform" />
                                 </div>
-                                <div className="min-w-0">
-                                  <p className="font-semibold text-navy group-hover:text-brandBlue transition-colors truncate">
-                                    {service.title}
+                                <div className="min-w-0 flex-1">
+                                  <p className="font-bold text-xs group-hover:text-white text-navy transition-colors leading-tight">
+                                    All 7 Care Areas
                                   </p>
-                                  <p className="text-[11px] text-bodyText-muted truncate">
-                                    {service.eyebrow}
+                                  <p className="text-[11px] text-brandBlue group-hover:text-white/90 transition-colors leading-tight mt-0.5">
+                                    View full directory →
                                   </p>
                                 </div>
                               </Link>
-                            ))}
+                            </div>
                           </div>
                         </div>
                       )}
@@ -314,23 +372,20 @@ export function SiteHeader() {
           {/* Drawer Panel */}
           <div className="fixed top-0 right-0 bottom-0 w-[86vw] max-w-sm bg-white shadow-2xl flex flex-col z-[61] overflow-hidden animate-in slide-in-from-right duration-300">
             {/* Drawer Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-borderSubtle bg-gradient-to-r from-brandBlue-pale/60 via-white to-white shrink-0">
+            <div className="flex items-center justify-between px-5 py-3.5 border-b border-borderSubtle bg-gradient-to-r from-brandBlue-pale/60 via-white to-white shrink-0">
               <Link
                 href="/"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center gap-2.5"
+                className="flex items-center"
+                aria-label="Dr. Shikha Gupta Home"
               >
-                <div className="w-9 h-9 rounded-full bg-brandBlue-soft border border-brandBlue/20 flex items-center justify-center shrink-0">
-                  <Stethoscope className="w-5 h-5 text-brandBlue" />
-                </div>
-                <div>
-                  <p className="font-extrabold text-navy text-sm leading-tight">
-                    {doctorData.name}
-                  </p>
-                  <p className="text-[11px] text-brandBlue font-semibold leading-tight">
-                    Paediatrician • Kamla Nagar
-                  </p>
-                </div>
+                <Image
+                  src="/images/logo/logo.png"
+                  alt="Dr. Shikha Gupta - Child Clinic Logo"
+                  width={220}
+                  height={107}
+                  className="h-11 sm:h-12 w-auto object-contain"
+                />
               </Link>
 
               <button

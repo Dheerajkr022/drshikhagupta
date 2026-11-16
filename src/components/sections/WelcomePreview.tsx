@@ -1,9 +1,8 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, CheckCircle2, Sparkles, Heart } from "lucide-react";
+import { ArrowRight, CheckCircle2, Heart, Quote } from "lucide-react";
 import { doctorData } from "@/data/doctor";
-import { Button } from "@/components/ui/Button";
 
 export function WelcomePreview() {
   const stages = [
@@ -42,15 +41,14 @@ export function WelcomePreview() {
   ];
 
   return (
-    <section className="py-16 sm:py-24 bg-white">
+    <section className="py-16 sm:py-24 bg-white border-b border-borderSubtle/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-14 space-y-3">
-          <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-pill bg-brandBlue-soft text-brandBlue text-xs font-bold uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5" />
-            <span>Care for Every Chapter</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight leading-tight">
+        <div className="max-w-3xl mb-12 sm:mb-16 space-y-3">
+          <span className="text-xs font-semibold text-brandBlue uppercase tracking-wider">
+            Paediatric Care Pathway
+          </span>
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-navy tracking-tight leading-tight font-heading">
             Comprehensive Support from First Breath to Teen Years.
           </h2>
           <p className="text-base sm:text-lg text-bodyText-muted leading-relaxed">
@@ -58,36 +56,35 @@ export function WelcomePreview() {
           </p>
         </div>
 
-        {/* 4 Interactive Stages Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-14">
+        {/* 4 Developmental Stages - Clean Editorial Continuum */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {stages.map((stage, idx) => (
             <Link
               key={idx}
               href={stage.href}
-              className="group rounded-card overflow-hidden border border-borderSubtle bg-white hover:border-brandBlue/40 hover:shadow-card transition-all duration-300 flex flex-col justify-between"
+              className="group flex flex-col justify-between rounded-xl overflow-hidden border border-borderSubtle bg-white hover:border-brandBlue/50 transition-all duration-200"
             >
               <div>
-                <div className="relative aspect-[4/3] w-full overflow-hidden bg-brandBlue-pale">
+                <div className="relative aspect-[16/10] w-full overflow-hidden bg-brandBlue-pale">
                   <Image
                     src={stage.image}
                     alt={stage.alt || stage.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 300px"
-                    className="object-cover group-hover:scale-108 transition-transform duration-500"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/70 via-transparent to-transparent" />
-                  <span className="absolute bottom-3 left-3 px-2.5 py-0.5 rounded-pill bg-white/95 text-[11px] font-bold text-navy shadow-soft">
+                  <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-white/95 backdrop-blur-sm text-[11px] font-bold text-navy shadow-soft">
                     {stage.age}
                   </span>
                 </div>
 
                 <div className="p-5 space-y-3">
-                  <h3 className="font-bold text-navy text-lg group-hover:text-brandBlue transition-colors">
+                  <h3 className="font-bold text-navy text-base group-hover:text-brandBlue transition-colors font-heading">
                     {stage.title}
                   </h3>
                   <ul className="space-y-1.5 text-xs text-bodyText-muted">
                     {stage.points.map((pt, i) => (
-                      <li key={i} className="flex items-center gap-1.5">
+                      <li key={i} className="flex items-center gap-2">
                         <CheckCircle2 className="w-3.5 h-3.5 text-brandBlue shrink-0" />
                         <span>{pt}</span>
                       </li>
@@ -106,35 +103,33 @@ export function WelcomePreview() {
           ))}
         </div>
 
-        {/* Doctor Quote Showcase Banner */}
-        <div className="rounded-[24px] bg-gradient-to-r from-navy via-navy-light to-navy p-8 sm:p-10 text-white shadow-xl relative overflow-hidden">
-          <div className="absolute right-0 top-0 w-96 h-96 bg-brandBlue/20 rounded-full blur-3xl pointer-events-none" />
-
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-10">
+        {/* Doctor Bedside Philosophy - High-End Editorial Feature */}
+        <div className="rounded-2xl bg-[#F7FAFD] border border-borderSubtle/80 p-7 sm:p-10 relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-3 flex justify-center md:justify-start">
-              <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-glow shrink-0">
+              <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden border-2 border-brandBlue/20 shadow-soft shrink-0">
                 <Image
                   src="/images/doctor/dr-shikha-gupta.jpg"
                   alt="Dr. Shikha Gupta, Consultant Paediatrician at Sethi Multispecialty Clinic, Kamla Nagar, Delhi"
                   fill
-                  sizes="128px"
+                  sizes="112px"
                   className="object-cover object-center"
                 />
               </div>
             </div>
 
-            <div className="md:col-span-9 space-y-4 text-center md:text-left">
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-white/10 text-xs text-brandCyan-light font-semibold">
-                <Heart className="w-3.5 h-3.5 fill-current" />
+            <div className="md:col-span-9 space-y-3 text-center md:text-left">
+              <div className="inline-flex items-center gap-1.5 text-xs font-semibold text-brandBlue uppercase tracking-wider">
+                <Heart className="w-3.5 h-3.5 fill-brandBlue text-brandBlue" />
                 <span>Doctor&apos;s Bedside Philosophy</span>
               </div>
-              <blockquote className="text-base sm:text-xl font-medium text-white/95 leading-relaxed italic">
+              <blockquote className="text-base sm:text-lg font-medium text-navy leading-relaxed italic">
                 &ldquo;A parent&apos;s instinct is one of the most accurate diagnostic signals in paediatrics. My clinical commitment is to listen first, never rush through appointments, and provide gentle, rational medical care that brings peace of mind to your family.&rdquo;
               </blockquote>
               <div>
-                <p className="font-bold text-white text-base">Dr. Shikha Gupta</p>
-                <p className="text-xs text-white/70">
-                  MBBS (VMMC & Safdarjung Hospital), MD Pediatrics (RML Hospital / PGIMER)
+                <p className="font-bold text-navy text-sm sm:text-base">{doctorData.name}</p>
+                <p className="text-xs text-bodyText-muted mt-0.5">
+                  MBBS (VMMC & Safdarjung Hospital) • MD Pediatrics (Dr. RML Hospital / PGIMER, New Delhi)
                 </p>
               </div>
             </div>
