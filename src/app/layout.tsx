@@ -27,8 +27,13 @@ export const metadata: Metadata = {
     canonical: "/",
   },
   icons: {
-    icon: "/images/logo/logo.png",
-    apple: "/images/logo/logo.png",
+    icon: [
+      { url: "/images/logo/drshikhagutpafavicon2.png" },
+      { url: "/images/logo/drshikhaguptafavicon2.png" },
+      { url: "/favicon.ico" },
+    ],
+    apple: "/images/logo/drshikhagutpafavicon2.png",
+    shortcut: "/images/logo/drshikhagutpafavicon2.png",
   },
   openGraph: {
     type: "website",
@@ -61,12 +66,37 @@ export default function RootLayout({
           href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400..700;1,9..40,400..700&family=Manrope:wght@500;600;700;800&display=swap"
           rel="stylesheet"
         />
+        <link rel="icon" href="/images/logo/drshikhagutpafavicon2.png" sizes="any" />
+        <link rel="apple-touch-icon" href="/images/logo/drshikhagutpafavicon2.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        {/* Google Tag Manager */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtm.js?id=GTM-T3VVZSSP"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            `,
+          }}
+        />
       </head>
       <body className="min-h-screen flex flex-col font-sans text-bodyText antialiased bg-white selection:bg-brandBlue selection:text-white">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src="https://www.googletagmanager.com/ns.html?id=GTM-T3VVZSSP"
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <SiteHeader />
         <main className="flex-1 pb-16 lg:pb-0">{children}</main>
         <SiteFooter />

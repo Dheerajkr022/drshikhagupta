@@ -15,8 +15,16 @@ import {
   AlertCircle,
   MessageSquare,
   Sparkles,
+  Home,
+  User,
+  Stethoscope,
+  Star,
+  HelpCircle,
+  MapPin,
+  ChevronRight,
 } from "lucide-react";
 import { clinicData } from "@/data/clinic";
+import { doctorData } from "@/data/doctor";
 import { servicesData } from "@/data/services";
 import { Button } from "@/components/ui/Button";
 import { cn } from "@/lib/utils";
@@ -26,6 +34,7 @@ export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,8 +45,30 @@ export function SiteHeader() {
   }, []);
 
   useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && mobileMenuOpen) {
+        setMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  useEffect(() => {
     setIsServicesOpen(false);
     setMobileMenuOpen(false);
+    setMobileServicesOpen(false);
   }, [pathname]);
 
   const navLinks = [
@@ -245,7 +276,7 @@ export function SiteHeader() {
             <div className="flex lg:hidden items-center gap-2">
               <a
                 href={`tel:${clinicData.contact.phone}`}
-                className="p-2.5 rounded-full text-brandBlue bg-brandBlue-soft hover:bg-brandBlue-pale"
+                className="p-2.5 rounded-full text-brandBlue bg-brandBlue-soft hover:bg-brandBlue-pale transition-colors"
                 aria-label="Call clinic directly"
               >
                 <Phone className="w-4 h-4" aria-hidden="true" />
@@ -253,139 +284,309 @@ export function SiteHeader() {
 
               <button
                 type="button"
-                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-element text-navy hover:bg-brandBlue-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue"
+                onClick={() => setMobileMenuOpen(true)}
+                className="p-2.5 rounded-full text-navy bg-brandBlue-pale hover:bg-brandBlue-soft focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brandBlue transition-all active:scale-95"
                 aria-expanded={mobileMenuOpen}
-                aria-label="Toggle navigation menu"
+                aria-label="Open navigation menu"
               >
-                {mobileMenuOpen ? (
-                  <X className="w-6 h-6 text-navy" aria-hidden="true" />
-                ) : (
-                  <Menu className="w-6 h-6 text-navy" aria-hidden="true" />
-                )}
+                <Menu className="w-5 h-5 text-navy" aria-hidden="true" />
               </button>
             </div>
           </div>
+        </div>
+      </header>
 
-          {/* Mobile Drawer */}
-          {mobileMenuOpen && (
-            <div className="lg:hidden border-t border-borderSubtle mt-3 pt-3 pb-6 animate-in slide-in-from-top duration-200">
-              {/* Emergency Banner in Mobile Menu */}
-              <div className="p-3 mb-3 rounded-element bg-status-emergencyBg border border-status-emergency/20 text-xs text-bodyText flex items-center gap-2">
-                <AlertCircle className="w-4 h-4 text-status-emergency shrink-0" />
-                <span>For emergency care, please visit hospital casualty directly.</span>
+      {/* Modern Mobile Slide-Over Sidebar Drawer */}
+      {mobileMenuOpen && (
+        <div
+          className="lg:hidden fixed inset-0 z-[60]"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation Sidebar"
+        >
+          {/* Backdrop Overlay */}
+          <div
+            className="fixed inset-0 bg-navy/60 backdrop-blur-sm transition-opacity duration-300"
+            onClick={() => setMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Drawer Panel */}
+          <div className="fixed top-0 right-0 bottom-0 w-[86vw] max-w-sm bg-white shadow-2xl flex flex-col z-[61] overflow-hidden animate-in slide-in-from-right duration-300">
+            {/* Drawer Header */}
+            <div className="flex items-center justify-between px-5 py-4 border-b border-borderSubtle bg-gradient-to-r from-brandBlue-pale/60 via-white to-white shrink-0">
+              <Link
+                href="/"
+                onClick={() => setMobileMenuOpen(false)}
+                className="flex items-center gap-2.5"
+              >
+                <div className="w-9 h-9 rounded-full bg-brandBlue-soft border border-brandBlue/20 flex items-center justify-center shrink-0">
+                  <Stethoscope className="w-5 h-5 text-brandBlue" />
+                </div>
+                <div>
+                  <p className="font-extrabold text-navy text-sm leading-tight">
+                    {doctorData.name}
+                  </p>
+                  <p className="text-[11px] text-brandBlue font-semibold leading-tight">
+                    Paediatrician • Kamla Nagar
+                  </p>
+                </div>
+              </Link>
+
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-9 h-9 rounded-full bg-brandBlue-pale hover:bg-brandBlue-soft text-navy flex items-center justify-center transition-colors active:scale-95"
+                aria-label="Close menu"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Scrollable Navigation Body */}
+            <div className="flex-1 overflow-y-auto px-4 py-4 space-y-4">
+              {/* Emergency Banner Alert */}
+              <div className="p-2.5 rounded-element bg-amber-50 border border-amber-200/80 text-[11px] text-amber-900 flex items-start gap-2">
+                <AlertCircle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                <span className="leading-tight">
+                  <strong>Emergency?</strong> Please visit hospital casualty directly.
+                </span>
               </div>
 
-              <nav className="flex flex-col gap-1">
+              {/* Navigation Links */}
+              <nav className="space-y-1">
+                {/* Home */}
                 <Link
                   href="/"
+                  onClick={() => setMobileMenuOpen(false)}
                   className={cn(
-                    "px-4 py-2.5 rounded-element text-base font-semibold",
+                    "flex items-center justify-between px-3.5 py-2.5 rounded-element text-sm font-semibold transition-colors",
                     pathname === "/"
-                      ? "bg-brandBlue-soft text-brandBlue font-bold"
-                      : "text-bodyText hover:bg-brandBlue-pale"
+                      ? "bg-brandBlue text-white shadow-soft font-bold"
+                      : "text-navy hover:bg-brandBlue-pale"
                   )}
                 >
-                  Home
-                </Link>
-                <Link
-                  href="/about"
-                  className={cn(
-                    "px-4 py-2.5 rounded-element text-base font-semibold",
-                    pathname.startsWith("/about")
-                      ? "bg-brandBlue-soft text-brandBlue font-bold"
-                      : "text-bodyText hover:bg-brandBlue-pale"
-                  )}
-                >
-                  About Dr. Shikha Gupta
+                  <span className="flex items-center gap-3">
+                    <Home className="w-4 h-4 shrink-0" />
+                    <span>Home</span>
+                  </span>
+                  <ChevronRight className="w-4 h-4 opacity-60" />
                 </Link>
 
-                {/* Services Group */}
-                <div className="py-2">
-                  <Link
-                    href="/services"
-                    className="block px-4 py-1.5 text-base font-bold text-navy"
+                {/* About */}
+                <Link
+                  href="/about"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between px-3.5 py-2.5 rounded-element text-sm font-semibold transition-colors",
+                    pathname.startsWith("/about")
+                      ? "bg-brandBlue text-white shadow-soft font-bold"
+                      : "text-navy hover:bg-brandBlue-pale"
+                  )}
+                >
+                  <span className="flex items-center gap-3">
+                    <User className="w-4 h-4 shrink-0" />
+                    <span>About Dr. Shikha Gupta</span>
+                  </span>
+                  <ChevronRight className="w-4 h-4 opacity-60" />
+                </Link>
+
+                {/* Services Collapsible Accordion */}
+                <div className="rounded-element overflow-hidden border border-borderSubtle/70 bg-brandBlue-pale/30">
+                  <button
+                    type="button"
+                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    className={cn(
+                      "w-full flex items-center justify-between px-3.5 py-2.5 text-sm font-semibold transition-colors text-left",
+                      pathname.startsWith("/services")
+                        ? "text-brandBlue font-bold bg-brandBlue-soft/50"
+                        : "text-navy hover:bg-brandBlue-pale"
+                    )}
                   >
-                    Paediatric Services
-                  </Link>
-                  <div className="pl-4 mt-1 border-l-2 border-brandBlue/20 space-y-1">
-                    {servicesData.map((s) => (
+                    <span className="flex items-center gap-3">
+                      <Stethoscope className="w-4 h-4 text-brandBlue shrink-0" />
+                      <span>Paediatric Services</span>
+                    </span>
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-[10px] font-bold uppercase tracking-wider bg-brandBlue/10 text-brandBlue px-2 py-0.5 rounded-pill">
+                        7 Care Areas
+                      </span>
+                      <ChevronDown
+                        className={cn(
+                          "w-4 h-4 text-bodyText-muted transition-transform duration-200",
+                          mobileServicesOpen && "rotate-180 text-brandBlue"
+                        )}
+                      />
+                    </div>
+                  </button>
+
+                  {/* Expandable Services List */}
+                  {mobileServicesOpen && (
+                    <div className="px-2 pb-2 pt-1 space-y-1 bg-white/80 border-t border-borderSubtle/60">
                       <Link
-                        key={s.slug}
-                        href={`/services/${s.slug}`}
-                        className="block px-3 py-1.5 text-sm text-bodyText hover:text-brandBlue font-medium"
+                        href="/services"
+                        onClick={() => setMobileMenuOpen(false)}
+                        className="flex items-center justify-between px-3 py-1.5 rounded-element text-xs font-bold text-brandBlue hover:bg-brandBlue-soft transition-colors"
                       >
-                        {s.title}
+                        <span>View All Services Overview</span>
+                        <span>→</span>
                       </Link>
-                    ))}
+                      <div className="h-px bg-borderSubtle/50 my-1" />
+                      {servicesData.map((s) => (
+                        <Link
+                          key={s.slug}
+                          href={`/services/${s.slug}`}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={cn(
+                            "flex items-center justify-between px-3 py-1.5 rounded-element text-xs transition-colors",
+                            pathname === `/services/${s.slug}`
+                              ? "bg-brandBlue-soft text-brandBlue font-bold"
+                              : "text-bodyText hover:text-navy hover:bg-brandBlue-pale"
+                          )}
+                        >
+                          <span className="truncate">{s.title}</span>
+                          <span className="text-[10px] text-bodyText-muted shrink-0 ml-2">
+                            {s.eyebrow.split("•")[0]?.trim()}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Parent Reviews */}
+                <Link
+                  href="/reviews"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between px-3.5 py-2.5 rounded-element text-sm font-semibold transition-colors",
+                    pathname.startsWith("/reviews")
+                      ? "bg-brandBlue text-white shadow-soft font-bold"
+                      : "text-navy hover:bg-brandBlue-pale"
+                  )}
+                >
+                  <span className="flex items-center gap-3">
+                    <Star className="w-4 h-4 shrink-0 text-amber-500 fill-amber-500" />
+                    <span>Parent Reviews</span>
+                  </span>
+                  <span
+                    className={cn(
+                      "text-[11px] font-bold px-2 py-0.5 rounded-pill",
+                      pathname.startsWith("/reviews")
+                        ? "bg-white/20 text-white"
+                        : "bg-amber-100 text-amber-800"
+                    )}
+                  >
+                    4.9 ★
+                  </span>
+                </Link>
+
+                {/* FAQs */}
+                <Link
+                  href="/faqs"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between px-3.5 py-2.5 rounded-element text-sm font-semibold transition-colors",
+                    pathname.startsWith("/faqs")
+                      ? "bg-brandBlue text-white shadow-soft font-bold"
+                      : "text-navy hover:bg-brandBlue-pale"
+                  )}
+                >
+                  <span className="flex items-center gap-3">
+                    <HelpCircle className="w-4 h-4 shrink-0" />
+                    <span>Doctor FAQs</span>
+                  </span>
+                  <ChevronRight className="w-4 h-4 opacity-60" />
+                </Link>
+
+                {/* Contact */}
+                <Link
+                  href="/contact"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={cn(
+                    "flex items-center justify-between px-3.5 py-2.5 rounded-element text-sm font-semibold transition-colors",
+                    pathname.startsWith("/contact")
+                      ? "bg-brandBlue text-white shadow-soft font-bold"
+                      : "text-navy hover:bg-brandBlue-pale"
+                  )}
+                >
+                  <span className="flex items-center gap-3">
+                    <MapPin className="w-4 h-4 shrink-0" />
+                    <span>Clinic Location & Hours</span>
+                  </span>
+                  <ChevronRight className="w-4 h-4 opacity-60" />
+                </Link>
+              </nav>
+
+              {/* Doctor Quick Profile Card */}
+              <div className="p-3.5 rounded-card bg-gradient-to-br from-brandBlue-pale/60 via-white to-brandCyan/10 border border-borderSubtle space-y-2.5">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-brandBlue/30 shadow-soft shrink-0">
+                    <Image
+                      src="/images/doctor/dr-shikha-gupta.jpg"
+                      alt="Dr. Shikha Gupta"
+                      fill
+                      sizes="48px"
+                      className="object-cover object-center"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <p className="font-bold text-navy text-sm truncate">
+                      {doctorData.name}
+                    </p>
+                    <p className="text-[11px] text-brandBlue font-medium truncate">
+                      MBBS (VMMC), MD Pediatrics (RML)
+                    </p>
+                    <p className="text-[10px] text-bodyText-muted truncate">
+                      Sethi Multispecialty Clinic, Kamla Nagar
+                    </p>
                   </div>
                 </div>
 
-                <Link
-                  href="/reviews"
-                  className={cn(
-                    "px-4 py-2.5 rounded-element text-base font-semibold",
-                    pathname.startsWith("/reviews")
-                      ? "bg-brandBlue-soft text-brandBlue font-bold"
-                      : "text-bodyText hover:bg-brandBlue-pale"
-                  )}
-                >
-                  Parent Reviews
-                </Link>
-                <Link
-                  href="/faqs"
-                  className={cn(
-                    "px-4 py-2.5 rounded-element text-base font-semibold",
-                    pathname.startsWith("/faqs")
-                      ? "bg-brandBlue-soft text-brandBlue font-bold"
-                      : "text-bodyText hover:bg-brandBlue-pale"
-                  )}
-                >
-                  FAQs
-                </Link>
-                <Link
-                  href="/contact"
-                  className={cn(
-                    "px-4 py-2.5 rounded-element text-base font-semibold",
-                    pathname.startsWith("/contact")
-                      ? "bg-brandBlue-soft text-brandBlue font-bold"
-                      : "text-bodyText hover:bg-brandBlue-pale"
-                  )}
-                >
-                  Contact & Clinic
-                </Link>
-
-                {/* Mobile Action Buttons */}
-                <div className="pt-4 mt-2 border-t border-borderSubtle flex flex-col gap-2.5">
-                  <Button
-                    href="/appointment"
-                    variant="primary"
-                    className="w-full justify-center rounded-pill bg-gradient-to-r from-brandBlue to-brandCyan shadow-soft py-3 font-bold"
-                  >
-                    <Calendar className="w-4 h-4 mr-2" />
-                    Request Appointment
-                  </Button>
-                  <Button
-                    href={whatsappUrl}
-                    variant="secondary"
-                    className="w-full justify-center rounded-pill bg-emerald-600 text-white hover:bg-emerald-700 border-none py-3 font-bold"
-                  >
-                    <MessageSquare className="w-4 h-4 mr-2" />
-                    WhatsApp Enquiry
-                  </Button>
-                  <a
-                    href={`tel:${clinicData.contact.phone}`}
-                    className="flex items-center justify-center gap-2 py-2.5 px-4 rounded-pill border border-borderSubtle text-navy font-bold text-sm hover:bg-brandBlue-pale"
-                  >
-                    <Phone className="w-4 h-4 text-brandBlue" />
-                    Call {clinicData.contact.phoneDisplay}
-                  </a>
+                <div className="pt-2 border-t border-borderSubtle/60 flex items-center justify-between text-[11px] text-bodyText-muted">
+                  <span className="flex items-center gap-1 font-medium text-navy">
+                    <Clock className="w-3.5 h-3.5 text-brandBlue" />
+                    Mon–Sat: 10:30–12:30 & 6:00–8:30
+                  </span>
                 </div>
-              </nav>
+              </div>
             </div>
-          )}
+
+            {/* Fixed Action Footer inside Drawer */}
+            <div className="p-4 bg-white border-t border-borderSubtle shrink-0 space-y-2 shadow-lg">
+              <Button
+                href="/appointment"
+                variant="primary"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full justify-center rounded-pill bg-gradient-to-r from-brandBlue to-brandCyan shadow-glow py-3 font-bold text-sm"
+              >
+                <Calendar className="w-4 h-4 mr-2" />
+                <span>Book Appointment</span>
+              </Button>
+
+              <div className="grid grid-cols-2 gap-2">
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-pill bg-emerald-600 text-white hover:bg-emerald-700 font-semibold text-xs transition-colors shadow-soft"
+                >
+                  <MessageSquare className="w-3.5 h-3.5" />
+                  <span>WhatsApp</span>
+                </a>
+
+                <a
+                  href={`tel:${clinicData.contact.phone}`}
+                  className="flex items-center justify-center gap-1.5 py-2.5 px-3 rounded-pill border border-borderSubtle text-navy font-semibold text-xs hover:bg-brandBlue-pale transition-colors"
+                >
+                  <Phone className="w-3.5 h-3.5 text-brandBlue" />
+                  <span>Call Desk</span>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
-      </header>
+      )}
     </>
   );
 }

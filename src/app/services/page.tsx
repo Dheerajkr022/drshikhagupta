@@ -18,9 +18,9 @@ import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Paediatric Services | Dr. Shikha Gupta, Kamla Nagar",
+  title: "Paediatric Services in Kamla Nagar, Delhi | Dr. Shikha Gupta",
   description:
-    "Explore well-baby care, child vaccination, growth and development monitoring, childhood illness consultations, adolescent health, and parent counselling in North Delhi.",
+    "Explore specialized paediatric services including well-baby checkups, IAP child vaccination, growth monitoring, fever consultation, and breastfeeding support in Kamla Nagar, North Delhi.",
   path: "/services",
 });
 
@@ -39,13 +39,13 @@ export default function ServicesPage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-brandBlue-soft text-brandBlue text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Comprehensive Paediatric Clinical Practice</span>
+              <span>Comprehensive Paediatric Clinical Practice • North Delhi</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
               Paediatric Care for Every Stage of Childhood.
             </h1>
             <p className="text-base sm:text-lg text-bodyText leading-relaxed">
-              From the earliest newborn milestones and vaccination guidance to common childhood illnesses and adolescent wellbeing, each service provides dedicated, unhurried paediatric care.
+              From newborn well-baby exams and IAP vaccinations to fever care and adolescent health, Dr. Shikha Gupta provides dedicated, unhurried paediatric care at Sethi Multispecialty Clinic, Kamla Nagar.
             </p>
           </div>
         </div>

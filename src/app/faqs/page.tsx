@@ -134,7 +134,7 @@ export default function FAQsPage() {
             <div className="relative w-16 h-16 rounded-full overflow-hidden border-2 border-brandBlue/30 shrink-0">
               <Image
                 src="/images/doctor/dr-shikha-gupta.jpg"
-                alt="Dr. Shikha Gupta"
+                alt="Dr. Shikha Gupta, Consultant Paediatrician in Kamla Nagar, Delhi"
                 fill
                 sizes="64px"
                 className="object-cover object-center"

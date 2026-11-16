@@ -78,6 +78,7 @@ export interface ServiceDetail {
   faqIds: string[];
   metaTitle: string;
   metaDescription: string;
+  cardHighlights?: string[];
 }
 
 export interface Testimonial {

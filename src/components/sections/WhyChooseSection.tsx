@@ -3,7 +3,7 @@ import {
   MessageSquareHeart,
   ShieldCheck,
   TrendingUp,
-  BookOpenCheck,
+  Syringe,
   GraduationCap,
   Sparkles,
 } from "lucide-react";
@@ -13,39 +13,39 @@ export function WhyChooseSection() {
   const points = [
     {
       icon: <MessageSquareHeart className="w-5 h-5 text-brandBlue" />,
-      title: "A conversation-first approach",
+      title: "Listening-First Consultations",
       description:
-        "Every consultation allows time for parents to voice their questions, share daily observations, and understand treatment decisions without feeling hurried.",
+        "Consultations begin by listening closely to your observations as a parent. We never rush through appointments, ensuring all your questions about sleep, feeding, and symptoms are thoroughly answered.",
     },
     {
       icon: <ShieldCheck className="w-5 h-5 text-brandBlue" />,
-      title: "Preventive care focus",
+      title: "Rational Medicine & Zero Polypharmacy",
       description:
-        "Routine health check-ups, early clinical screening, and timely immunisation help keep your child healthy and spot potential issues before they advance.",
+        "Strict antibiotic stewardship. Most common childhood colds and fevers are viral and resolve with gentle supportive care. We prescribe only what is medically essential, avoiding unnecessary antibiotics and syrups.",
     },
     {
       icon: <TrendingUp className="w-5 h-5 text-brandBlue" />,
-      title: "Growth beyond numbers",
+      title: "WHO-Standardised Milestone Tracking",
       description:
-        "We track developmental milestones alongside height and weight, offering guidance on speech, motor coordination, and age-appropriate behaviour.",
+        "Systematic growth plotting on World Health Organization (WHO) percentile curves. We screen gross motor, speech, and cognitive milestones early so subtle delays receive timely, gentle intervention.",
     },
     {
-      icon: <BookOpenCheck className="w-5 h-5 text-brandBlue" />,
-      title: "Clear guidance for parents",
+      icon: <Syringe className="w-5 h-5 text-brandBlue" />,
+      title: "Evidence-Based IAP Immunisation",
       description:
-        "Medical advice is communicated in transparent, everyday language so caregivers understand home-care steps, dosage schedules, and warning signs clearly.",
-    },
-    {
-      icon: <GraduationCap className="w-5 h-5 text-brandBlue" />,
-      title: "Paediatric-focused credentials",
-      description:
-        "Dr. Shikha Gupta completed post-graduate training (MD Pediatrics) at Dr. Ram Manohar Lohia Hospital / PGIMER, following MBBS at VMMC & Safdarjung Hospital.",
+        "Vaccinations administered strictly under Indian Academy of Pediatrics (IAP) protocols. Stored under certified medical cold-chain refrigeration with clear post-vaccination home care.",
     },
     {
       icon: <Sparkles className="w-5 h-5 text-brandBlue" />,
-      title: "Care across childhood years",
+      title: "Compassionate Parent Partnership",
       description:
-        "Support tailored to each chapter of childhood—from newborn feeding and early infant care to preschool health, school-age illness, and adolescent wellbeing.",
+        "Support for infant feeding, toddler food battles, and screen-time boundaries. Dr. Gupta (herself a mother) understands the daily dilemmas of raising children and offers practical, judgment-free advice.",
+    },
+    {
+      icon: <GraduationCap className="w-5 h-5 text-brandBlue" />,
+      title: "Premier Teaching Hospital Pedigree",
+      description:
+        "MBBS from VMMC & Safdarjung Hospital and MD Pediatrics from Dr. Ram Manohar Lohia Hospital / PGIMER, backed by Senior Residency experience managing complex paediatric clinical conditions.",
     },
   ];
 
@@ -53,9 +53,9 @@ export function WhyChooseSection() {
     <section className="py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <SectionHeading
-          eyebrow="Our Clinical Approach"
-          title="A Thoughtful Approach to Your Child's Care."
-          description="Grounded in evidence, transparent communication, and respect for each family's unique journey."
+          eyebrow="Clinical Principles & Parent Trust"
+          title="Why Parents in Kamla Nagar Trust Dr. Shikha Gupta"
+          description="Evidence-based medicine, rational antibiotic prescribing, unhurried consultations, and respectful communication for every family."
           align="center"
           className="mb-14"
         />
@@ -82,4 +82,3 @@ export function WhyChooseSection() {
     </section>
   );
 }
-

@@ -86,7 +86,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
               <div className="relative aspect-[16/10] sm:aspect-[4/3] w-full rounded-[24px] overflow-hidden border-4 border-white shadow-card bg-brandBlue-pale">
                 <Image
                   src={service.image}
-                  alt={service.title}
+                  alt={`${service.title} consultation with Dr. Shikha Gupta at Sethi Multispecialty Clinic, Kamla Nagar, Delhi`}
                   fill
                   priority
                   sizes="(max-width: 768px) 100vw, 500px"
@@ -269,7 +269,7 @@ export function ServiceDetailTemplate({ service }: ServiceDetailTemplateProps) {
                 <div className="relative aspect-[16/9] w-full overflow-hidden bg-brandBlue-pale">
                   <Image
                     src={s.image}
-                    alt={s.title}
+                    alt={`${s.title} - Dr. Shikha Gupta, Paediatrician in Kamla Nagar`}
                     fill
                     sizes="300px"
                     className="object-cover"

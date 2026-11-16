@@ -24,9 +24,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { getPhysicianStructuredData } from "@/lib/structured-data";
 
 export const metadata: Metadata = constructMetadata({
-  title: "About Dr. Shikha Gupta | Consultant Paediatrician",
+  title: "About Dr. Shikha Gupta | Consultant Paediatrician in Kamla Nagar, Delhi",
   description:
-    "Learn about Dr. Shikha Gupta's paediatric qualifications (MBBS from VMMC & Safdarjung, MD Pediatrics from RML Hospital/PGIMER), clinical experience, and care philosophy.",
+    "Learn about Dr. Shikha Gupta's paediatric medical qualifications (MBBS VMMC & Safdarjung Hospital, MD Pediatrics RML Hospital / PGIMER), senior clinical experience, and gentle patient-care approach in North Delhi.",
   path: "/about",
 });
 
@@ -56,10 +56,10 @@ export default function AboutPage() {
                 <span>Consultant Paediatrician • Kamla Nagar, Delhi</span>
               </div>
               <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
-                Getting to Know Dr. Shikha Gupta.
+                Dr. Shikha Gupta — Consultant Paediatrician & Child Specialist.
               </h1>
               <p className="text-base sm:text-lg text-bodyText leading-relaxed max-w-2xl">
-                A paediatrician&apos;s role is not only to care for a child when they are unwell, but also to help families understand the everyday steps that support healthy, confident growth.
+                MBBS (VMMC & Safdarjung Hospital), MD Pediatrics (RML Hospital / PGIMER). Providing compassionate, evidence-based care where parents feel heard and children receive unhurried, gentle medical attention.
               </p>
             </div>
 
@@ -94,10 +94,10 @@ export default function AboutPage() {
             {/* Left Card: Doctor Overview with Real Photo */}
             <div className="lg:col-span-5 space-y-6">
               <div className="rounded-[28px] overflow-hidden border border-borderSubtle bg-white shadow-card p-4 space-y-6">
-                <div className="relative aspect-[4/4.4] w-full rounded-[20px] overflow-hidden bg-brandBlue-pale">
+                <div className="relative aspect-[4/4.2] w-full rounded-[20px] overflow-hidden bg-brandBlue-pale">
                   <Image
                     src="/images/doctor/dr-shikha-gupta.jpg"
-                    alt="Dr. Shikha Gupta, Consultant Paediatrician"
+                    alt="Dr. Shikha Gupta, Consultant Paediatrician (MBBS VMMC, MD Pediatrics RML Hospital) at Sethi Multispecialty Clinic, Kamla Nagar, Delhi"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, 400px"

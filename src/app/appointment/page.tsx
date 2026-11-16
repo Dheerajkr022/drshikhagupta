@@ -9,9 +9,9 @@ import { Breadcrumbs } from "@/components/navigation/Breadcrumbs";
 import { AppointmentForm } from "@/components/forms/AppointmentForm";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Request an Appointment | Dr. Shikha Gupta Paediatric Clinic",
+  title: "Book Paediatric Appointment in Kamla Nagar | Dr. Shikha Gupta",
   description:
-    "Request a paediatric consultation, well-baby visit, or vaccination review with Dr. Shikha Gupta in Kamla Nagar, Delhi. Fast response from our clinic desk.",
+    "Schedule an unhurried consultation with Dr. Shikha Gupta for newborn health checks, IAP vaccinations, fever care, and growth monitoring in Kamla Nagar, North Delhi.",
   path: "/appointment",
 });
 
@@ -37,7 +37,7 @@ export default function AppointmentPage() {
               <span>Direct Doctor Consultation Request</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
-              Request an Appointment.
+              Book a Paediatric Consultation in Kamla Nagar, Delhi
             </h1>
             <p className="text-base sm:text-lg text-bodyText leading-relaxed">
               Share your details and preferred consultation slot below. Our clinic receptionist will review and contact you promptly via phone or WhatsApp to confirm doctor availability.
@@ -62,7 +62,7 @@ export default function AppointmentPage() {
                 <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-brandBlue/30 shrink-0">
                   <Image
                     src="/images/doctor/dr-shikha-gupta.jpg"
-                    alt="Dr. Shikha Gupta"
+                    alt="Dr. Shikha Gupta, Consultant Paediatrician at Sethi Multispecialty Clinic, Kamla Nagar, Delhi"
                     fill
                     sizes="56px"
                     className="object-cover object-center"

@@ -84,16 +84,16 @@ export function ServiceCard({ service, featured = false }: ServiceCardProps) {
 
         {/* Card Body */}
         <div className="p-5 sm:p-6 space-y-4">
-          <p className="text-xs sm:text-sm text-bodyText leading-relaxed">
+          <p className="text-xs sm:text-sm text-bodyText leading-relaxed min-h-[4rem]">
             {service.shortDescription}
           </p>
 
           {/* Quick bullet points */}
-          <div className="space-y-1.5 pt-1 border-t border-borderSubtle/60">
-            {service.whatWeCover.slice(0, 2).map((item, i) => (
-              <div key={i} className="flex items-start gap-2 text-xs text-bodyText-muted">
+          <div className="space-y-2 pt-2 border-t border-borderSubtle/60">
+            {(service.cardHighlights || service.whatWeCover.slice(0, 2)).map((item, i) => (
+              <div key={i} className="flex items-start gap-2 text-xs text-bodyText">
                 <CheckCircle2 className="w-3.5 h-3.5 text-brandBlue shrink-0 mt-0.5" />
-                <span className="line-clamp-1">{item}</span>
+                <span className="leading-snug">{item}</span>
               </div>
             ))}
           </div>

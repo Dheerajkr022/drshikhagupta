@@ -21,9 +21,9 @@ import { ContactForm } from "@/components/forms/ContactForm";
 import { Button } from "@/components/ui/Button";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Contact Dr. Shikha Gupta | Child Clinic, Kamla Nagar",
+  title: "Contact Dr. Shikha Gupta | Child Clinic in Kamla Nagar, Delhi",
   description:
-    "Find clinic address, confirmed timings, phone numbers (+91 99586 83094), WhatsApp link, and directions for Dr. Shikha Gupta's clinic in Kamla Nagar, Delhi.",
+    "Clinic address, consultation hours, direct phone number (+91 99586 83094), and transit directions for Dr. Shikha Gupta at Sethi Multispecialty Clinic, Bhatia Chowk, Kamla Nagar, Delhi.",
   path: "/contact",
 });
 
@@ -46,13 +46,13 @@ export default function ContactPage() {
           <div className="max-w-3xl space-y-4">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-brandBlue-soft text-brandBlue text-xs font-bold uppercase tracking-wider">
               <Sparkles className="w-3.5 h-3.5" />
-              <span>Clinic Reach & Consultation Desk</span>
+              <span>Clinic Reach & Consultation Desk • Kamla Nagar, Delhi</span>
             </div>
             <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
-              We&apos;re Here to Help You Take the Next Step.
+              Contact Dr. Shikha Gupta&apos;s Clinic in Kamla Nagar.
             </h1>
             <p className="text-base sm:text-lg text-bodyText leading-relaxed">
-              For appointment enquiries, clinic timings, or questions regarding our paediatric services, contact the clinic using the direct phone numbers or form below.
+              Find our exact address at Bhatia Chowk, consultation hours, direct phone numbers, and WhatsApp links. Conveniently accessible for families across Kamla Nagar, Shakti Nagar, Roop Nagar, and Civil Lines.
             </p>
           </div>
         </div>
@@ -69,7 +69,7 @@ export default function ContactPage() {
                 <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-brandBlue/30 shrink-0">
                   <Image
                     src="/images/doctor/dr-shikha-gupta.jpg"
-                    alt="Dr. Shikha Gupta"
+                    alt="Dr. Shikha Gupta, Consultant Paediatrician at Sethi Multispecialty Clinic, Kamla Nagar, Delhi"
                     fill
                     sizes="56px"
                     className="object-cover object-center"

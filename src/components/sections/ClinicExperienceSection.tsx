@@ -114,7 +114,7 @@ export function ClinicExperienceSection() {
             <div className="relative rounded-[28px] overflow-hidden border-4 border-white shadow-2xl aspect-[4/3] w-full bg-brandBlue-pale">
               <Image
                 src="/images/clinic/clinic-interior.jpg"
-                alt="Clinic consultation interior"
+                alt="Child-friendly consultation room and paediatric examination clinic at Sethi Multispecialty Clinic, Bhatia Chowk, Kamla Nagar, Delhi"
                 fill
                 sizes="(max-width: 768px) 100vw, 550px"
                 className="object-cover hover:scale-105 transition-transform duration-700"

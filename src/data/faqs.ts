@@ -4,100 +4,127 @@ export const faqsData: FAQ[] = [
   {
     id: "faq-age-groups",
     category: "services",
-    question: "Which age groups does Dr. Shikha Gupta consult?",
+    question: "Which age groups does Dr. Shikha Gupta consult at the Kamla Nagar clinic?",
     answer:
-      "Dr. Shikha Gupta provides clinical care across the entire paediatric spectrum—from newborns and infants to young children and adolescents up to 18 years of age.",
+      "Dr. Shikha Gupta provides clinical care across the entire paediatric spectrum—from newborns and infants in their earliest weeks of life, to toddlers, preschool children, school-age kids, and adolescents up to 18 years of age.",
   },
   {
     id: "faq-location",
     category: "clinic",
-    question: "Where is the clinic located in Kamla Nagar?",
+    question: "Where exactly is the clinic located, and what is the nearest landmark?",
     answer:
-      "The clinic is located at D-26, Sethi Multispecialty Clinic, Bhatia Chowk, Kamla Nagar, Delhi – 110007. It is centrally located in North Delhi and easily accessible via major transit routes.",
+      "The clinic is situated at Sethi Multispecialty Clinic, D-26, Block D, Bhatia Chowk, Kamla Nagar, Delhi – 110007. It is right at Bhatia Chowk, near the Kamla Nagar main market. For metro commuters, it is 5–7 minutes from Vishwavidyalaya Metro Station (Yellow Line) and Pul Bangash Metro Station (Red Line).",
   },
   {
     id: "faq-timings",
     category: "clinic",
-    question: "What are the regular clinic timings?",
+    question: "What are the clinic consultation timings, and is the clinic open on Sundays?",
     answer:
-      "General consultation hours are Monday to Saturday: Morning 10:30 AM – 12:30 PM, and Evening 6:00 PM – 8:30 PM. Sunday visits are by prior appointment only. We always encourage parents to call or message ahead before arriving.",
+      "Regular consultation hours are Monday to Saturday: Morning 10:30 AM – 12:30 PM, and Evening 6:00 PM – 8:30 PM. Sunday consultations are available by prior appointment only. We always encourage families to call or send a quick WhatsApp message ahead before arriving.",
   },
   {
     id: "faq-appointment-request",
     category: "appointments",
-    question: "How can I request an appointment?",
+    question: "How can I book an appointment with Dr. Shikha Gupta?",
     answer:
-      "You can request an appointment by filling out the online enquiry form on this website, calling the clinic directly at +91 99586 83094, or sending a WhatsApp message. Please note that submitting a request online initiates an enquiry; the clinic team will reach out to confirm your slot based on doctor availability.",
+      "You can book an appointment by submitting the quick appointment form on this website, calling the clinic desk directly at +91 99586 83094, or sending a message on WhatsApp. When submitting an online request, our reception desk confirms your slot based on doctor availability.",
   },
   {
     id: "faq-walk-ins",
     category: "appointments",
     question: "Are walk-in consultations accepted, or is prior booking required?",
     answer:
-      "While we make every effort to accommodate walk-in patients during clinic hours, scheduled appointments are strongly recommended to reduce waiting room time and ensure focused consultation time for your child.",
+      "While we make every effort to accommodate walk-in patients during clinic hours, prior appointments are strongly recommended. Scheduled slots minimize waiting room time and ensure focused, unhurried consultation time for your child.",
+  },
+  {
+    id: "faq-antibiotics-policy",
+    category: "services",
+    question: "What is Dr. Shikha Gupta's policy on prescribing antibiotics for children?",
+    answer:
+      "Dr. Shikha Gupta strictly follows evidence-based rational antibiotic stewardship. Most childhood fevers, runny noses, and coughs are caused by self-limiting viral infections that do not require antibiotics. Dr. Gupta prescribes antibiotics only when a clinical examination or diagnostic test demonstrates a clear bacterial infection, protecting children from antimicrobial resistance and unnecessary medication side effects.",
   },
   {
     id: "faq-bring-first-visit",
     category: "clinic",
-    question: "What should I bring for my child's first consultation?",
+    question: "What documents and medical records should I bring for my child's first visit?",
     answer:
-      "Please bring your child's birth/discharge summary (for newborns and infants), vaccination tracking card, any previous prescriptions, recent lab or ultrasound reports, and a list of current questions or symptoms you wish to discuss.",
+      "Please bring your child's hospital discharge summary/birth record (especially for newborns), their physical immunisation booklet or card, any previous prescriptions, recent diagnostic or blood reports, and a brief written list of symptoms or questions you want to discuss.",
   },
   {
     id: "faq-vaccine-1",
     category: "vaccination",
-    question: "Can I bring my child's existing vaccination card for a review?",
+    question: "Can I bring my child's existing vaccination card for a review and update?",
     answer:
-      "Yes, absolutely. We encourage bringing the child's complete immunisation card. Dr. Shikha Gupta reviews past doses against current Indian Academy of Pediatrics (IAP) recommendations and advises on due or upcoming immunisations.",
+      "Yes, absolutely. We review your child's complete past vaccination history against the current Indian Academy of Pediatrics (IAP) and National Immunisation Schedule guidelines to ensure all core and optional doses are up to date.",
   },
   {
     id: "faq-vaccine-catchup",
     category: "vaccination",
-    question: "What if my child has missed or delayed scheduled vaccinations?",
+    question: "What should we do if our child missed or delayed scheduled vaccinations?",
     answer:
-      "Delayed or missed vaccines are common. Dr. Gupta will evaluate your child's age and vaccination history to design a safe, medically approved catch-up immunisation schedule.",
+      "Delayed or missed vaccines are very common due to travel or sickness. Dr. Shikha Gupta evaluates your child's current age and prior immunisation history to formulate a medically sound catch-up schedule, ensuring your child receives protection safely without repeating unnecessary doses.",
+  },
+  {
+    id: "faq-vaccine-2",
+    category: "vaccination",
+    question: "What is the difference between painless (acellular) and regular vaccines?",
+    answer:
+      "The terms 'painless' and 'regular' usually refer to the DTP vaccine component (Acellular DTaP vs Whole-cell DTwP). Acellular vaccines have fewer temporary side effects like post-vaccine fever, fretfulness, and injection-site swelling. Dr. Gupta explains the merits and clinical context of each option so parents can make informed decisions according to IAP guidelines.",
   },
   {
     id: "faq-well-baby-1",
     category: "services",
-    question: "What happens during a routine Well-Baby checkup?",
+    question: "What happens during a routine Well-Baby infant checkup?",
     answer:
-      "A well-baby visit includes tracking length/height, weight, and head circumference on growth charts, evaluating developmental milestones (motor, vision, social), reviewing feeding and sleep habits, and discussing any parental questions or upcoming vaccinations.",
+      "A well-baby checkup includes precise measurement and plotting of weight, length, and head circumference on WHO percentile curves, a gentle head-to-toe clinical check (fontanelle, eyes, heart, lungs, hips, abdomen), screening of developmental milestones, and dedicated advice on breastfeeding, formula, sleep, and colic management.",
+  },
+  {
+    id: "faq-well-baby-2",
+    category: "services",
+    question: "How often should an infant be brought in for routine wellness visits?",
+    answer:
+      "Typically, well-baby checkups align with immunisation milestones: within the first 7–10 days after birth, followed by visits at 6 weeks, 10 weeks, 14 weeks, 6 months, 9 months, and 12 months. Additional visits are scheduled whenever parents have specific concerns about feeding, weight gain, or recovery from sickness.",
   },
   {
     id: "faq-growth-1",
     category: "services",
-    question: "Can I discuss growth and developmental milestone delays?",
+    question: "When should I consult a doctor if I suspect a speech or motor milestone delay?",
     answer:
-      "Yes. If you have concerns regarding your child's speech, walking, eye contact, height, or weight gain, a dedicated developmental consultation will evaluate progress against standard percentiles and provide structured guidance.",
+      "If by 12 months your baby does not babble or respond to their name, or by 15–18 months does not speak single words or walk independently, an early clinical evaluation is strongly recommended. Dr. Gupta assesses gross motor, fine motor, speech, and social engagement to provide structured home stimulation exercises or specialist guidance.",
+  },
+  {
+    id: "faq-illness-1",
+    category: "services",
+    question: "How does the clinic help with winter wheezing, coughs, and seasonal allergies?",
+    answer:
+      "Delhi's seasonal transitions and winter air quality often trigger pediatric wheezing, allergic bronchitis, and persistent nighttime coughs. Dr. Gupta provides thorough chest auscultation, guides parents on correct nebulization or inhaler-spacer techniques when needed, and formulates home trigger-reduction strategies.",
   },
   {
     id: "faq-adolescent-1",
     category: "services",
-    question: "Does the clinic offer healthcare support for older teenagers?",
+    question: "Does Dr. Shikha Gupta consult for older teenagers and adolescents?",
     answer:
-      "Yes. Consultations for adolescents provide an age-appropriate, private setting to address pubertal growth spurts, nutritional needs (such as screening for iron deficiency anaemia), posture, and healthy lifestyle habits.",
+      "Yes. Adolescent consultations offer a respectful, private, and age-sensitive setting for pre-teens and teenagers aged 11 to 18 years to discuss pubertal growth, menstrual questions, iron-deficiency anaemia screening, screen-time posture, and healthy lifestyle habits.",
   },
   {
     id: "faq-breastfeeding-1",
     category: "services",
-    question: "Is breastfeeding guidance and latch support provided?",
+    question: "Can I consult Dr. Shikha Gupta for breastfeeding and newborn latching difficulties?",
     answer:
-      "Yes. Dr. Shikha Gupta provides gentle, clinical support for nursing mothers, including assessing baby's latch and oral anatomy, evaluating feeding adequacy and weight progression, and advising on weaning.",
+      "Yes. Dr. Shikha Gupta offers sensitive, doctor-led lactation guidance, assessing your baby's oral anatomy (checking for tongue-tie), observing latch technique, demonstrating ergonomic nursing postures, and tracking baby's weight gain to ensure sufficient milk transfer.",
   },
   {
     id: "faq-payment",
     category: "clinic",
-    question: "What payment methods are accepted at the clinic?",
+    question: "Which payment options are accepted at Sethi Multispecialty Clinic?",
     answer:
-      "The clinic accepts UPI (Google Pay, PhonePe, Paytm), cash, and direct bank transfers. Please verify specific card payment or receipt requirements at the clinic reception.",
+      "The clinic accepts all major digital payment options including UPI (Google Pay, PhonePe, Paytm), cash, and direct bank transfers. Detailed consultation receipts are provided at the clinic reception.",
   },
   {
     id: "faq-urgent-attention",
     category: "urgent",
-    question: "What should I do if my child needs urgent or emergency medical attention?",
+    question: "What should I do if my child needs urgent or emergency hospital care?",
     answer:
-      "IMPORTANT: If your child exhibits severe breathing distress, blueness of lips, uncontrollable seizures, unresponsiveness, severe head trauma, or acute dehydration with inability to retain fluids, proceed immediately to the nearest hospital emergency room. Do not rely on outpatient clinic bookings or website enquiry forms for emergencies.",
+      "EMERGENCY NOTICE: If your child exhibits severe breathing distress (chest retractions, gasping), blueness of the lips, continuous uncontrollable seizures, extreme drowsiness or unresponsiveness, or persistent vomiting with total inability to retain fluids, proceed immediately to the nearest hospital casualty or emergency room. Routine outpatient clinics and website forms are not equipped for acute life-threatening emergencies.",
   },
 ];
-

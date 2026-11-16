@@ -11,13 +11,15 @@ export function WelcomePreview() {
       title: "Newborn Care",
       age: "0 to 12 Months",
       image: "/images/services/well-baby.jpg",
-      points: ["Feeding & latch guidance", "Weight & length charting", "Primary immunisations"],
+      alt: "Dr. Shikha Gupta examining an infant during a well-baby consultation in Kamla Nagar",
+      points: ["Feeding & latch guidance", "WHO weight & length charting", "IAP primary immunisations"],
       href: "/services/well-baby-care",
     },
     {
       title: "Toddler Milestones",
       age: "1 to 3 Years",
       image: "/images/services/growth.jpg",
+      alt: "Toddler height and developmental milestone evaluation at Sethi Clinic, North Delhi",
       points: ["Speech & motor screening", "Balanced child nutrition", "Sleep routine support"],
       href: "/services/growth-development",
     },
@@ -25,13 +27,15 @@ export function WelcomePreview() {
       title: "Childhood Health",
       age: "4 to 10 Years",
       image: "/images/services/childhood-illness.jpg",
-      points: ["Seasonal cough & fever care", "Allergy assessments", "School health & immunity"],
+      alt: "Paediatrician checking a young child for cough, fever, and seasonal allergies in Kamla Nagar",
+      points: ["Seasonal cough & fever care", "Allergy assessments", "Rational medicine approach"],
       href: "/services/childhood-illness",
     },
     {
       title: "Adolescent Care",
       age: "11 to 18 Years",
       image: "/images/services/adolescent.jpg",
+      alt: "Doctor providing supportive health guidance and posture advice for a teenager in North Delhi",
       points: ["Pubertal growth checkups", "Anaemia & diet screening", "Ergonomics & lifestyle"],
       href: "/services/adolescent-care",
     },
@@ -66,7 +70,7 @@ export function WelcomePreview() {
                 <div className="relative aspect-[4/3] w-full overflow-hidden bg-brandBlue-pale">
                   <Image
                     src={stage.image}
-                    alt={stage.title}
+                    alt={stage.alt || stage.title}
                     fill
                     sizes="(max-width: 768px) 100vw, 300px"
                     className="object-cover group-hover:scale-108 transition-transform duration-500"
@@ -111,7 +115,7 @@ export function WelcomePreview() {
               <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-white/20 shadow-glow shrink-0">
                 <Image
                   src="/images/doctor/dr-shikha-gupta.jpg"
-                  alt="Dr. Shikha Gupta"
+                  alt="Dr. Shikha Gupta, Consultant Paediatrician at Sethi Multispecialty Clinic, Kamla Nagar, Delhi"
                   fill
                   sizes="128px"
                   className="object-cover object-center"

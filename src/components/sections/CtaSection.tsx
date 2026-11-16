@@ -22,7 +22,7 @@ export function CtaSection() {
           <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white/40 shadow-glow">
             <Image
               src="/images/doctor/dr-shikha-gupta.jpg"
-              alt="Dr. Shikha Gupta"
+              alt="Dr. Shikha Gupta, Consultant Paediatrician at Sethi Multispecialty Clinic, Kamla Nagar, Delhi"
               fill
               sizes="56px"
               className="object-cover object-center"

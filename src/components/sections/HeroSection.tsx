@@ -47,13 +47,13 @@ export function HeroSection() {
             {/* Main Headline */}
             <div className="space-y-4">
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-navy leading-[1.12] text-balance">
-                Thoughtful, Gentle Care for Your Child&apos;s{" "}
+                Dedicated Paediatrician in Kamla Nagar for Your Child&apos;s{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brandBlue to-brandCyan">
                   Health & Milestones.
                 </span>
               </h1>
               <p className="text-base sm:text-lg text-bodyText leading-relaxed max-w-2xl font-normal">
-                From your newborn&apos;s earliest days to school-age milestones and teenage wellness, <strong>{doctorData.name}</strong> provides attentive, evidence-based paediatric consultations where parents feel heard and children feel comfortable.
+                From newborn feeding checkups and painless vaccination to seasonal illness care and milestone tracking, <strong>{doctorData.name}</strong> (MBBS VMMC, MD Pediatrics RML Hospital) provides attentive, evidence-based consultations where parents feel heard and children feel comfortable.
               </p>
             </div>
 
@@ -155,10 +155,10 @@ export function HeroSection() {
               {/* Main Photo Card Container with Clean Profile Plate */}
               <div className="relative rounded-[28px] overflow-hidden bg-white border-2 border-white shadow-2xl">
                 {/* Doctor Portrait - Clean and Unobstructed */}
-                <div className="relative aspect-[4/4.4] w-full overflow-hidden bg-brandBlue-pale">
+                <div className="relative aspect-[4/4.2] w-full overflow-hidden bg-brandBlue-pale">
                   <Image
                     src="/images/doctor/dr-shikha-gupta.jpg"
-                    alt="Dr. Shikha Gupta, Consultant Paediatrician in Kamla Nagar, Delhi"
+                    alt="Dr. Shikha Gupta, Consultant Paediatrician (MBBS VMMC, MD Pediatrics RML Hospital) at Sethi Multispecialty Clinic, Kamla Nagar, Delhi"
                     fill
                     priority
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 45vw, 480px"

@@ -2,21 +2,21 @@ import { ClinicData } from "@/types";
 
 export const clinicData: ClinicData = {
   clinicName: "Dr. Shikha Gupta's Child Clinic",
-  clinicTagline: "Thoughtful Paediatric Care for Every Stage of Childhood",
+  clinicTagline: "Compassionate, Evidence-Based Paediatric Care in Kamla Nagar, Delhi",
   locationArea: "Kamla Nagar, North Delhi",
   doctorName: "Dr. Shikha Gupta",
   doctorCredentials: "MBBS (VMMC & Safdarjung Hospital), MD Pediatrics (RML Hospital / PGIMER)",
-  doctorRole: "Consultant Paediatrician",
+  doctorRole: "Consultant Paediatrician & Child Specialist",
   registrationNumberNotice: "State Medical Council Registration available at clinic reception",
   experienceStatement: "Senior Paediatric Clinical Experience",
   experienceVerificationNote:
-    "Experience count is currently under clinic verification for precise accreditation date alignment.",
+    "Medical qualifications verified from Vardhman Mahavir Medical College & Safdarjung Hospital and PGIMER / Dr. Ram Manohar Lohia Hospital, New Delhi.",
   timings: {
     weekdayMorning: "10:30 AM – 12:30 PM (Mon – Sat)",
     weekdayEvening: "6:00 PM – 8:30 PM (Mon – Sat)",
     sunday: "By Prior Appointment Only",
     notes:
-      "Clinic hours are subject to doctor availability and scheduled procedures. Please call ahead to confirm your visit.",
+      "Consultation hours are subject to doctor schedule and scheduled procedures. Please call or message ahead to confirm your visit slot.",
     isVerified: true,
   },
   contact: {
@@ -30,7 +30,7 @@ export const clinicData: ClinicData = {
     addressLine2: "Bhatia Chowk, Kamla Nagar",
     city: "Delhi",
     pincode: "110007",
-    landmark: "Near Bhatia Chowk",
+    landmark: "Right at Bhatia Chowk, near Kamla Nagar Main Market",
     fullAddress:
       "D-26, Sethi Multispecialty Clinic, Bhatia Chowk, Kamla Nagar, Delhi – 110007",
     googleMapsUrl:
@@ -40,4 +40,3 @@ export const clinicData: ClinicData = {
       "If your child has severe difficulty breathing, seizures, loss of consciousness, severe trauma, or acute lethargy, please go to the nearest emergency hospital immediately. Website enquiries and scheduled bookings are not for emergency medical care.",
   },
 };
-
