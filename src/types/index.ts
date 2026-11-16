@@ -20,6 +20,7 @@ export interface ClinicContact {
   landmark: string;
   fullAddress: string;
   googleMapsUrl: string;
+  googleReviewsUrl?: string;
   googleMapsEmbedUrl?: string;
   emergencyDisclaimer: string;
 }

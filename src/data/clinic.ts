@@ -35,6 +35,7 @@ export const clinicData: ClinicData = {
       "D-26, Sethi Multispecialty Clinic, Bhatia Chowk, Kamla Nagar, Delhi – 110007",
     googleMapsUrl:
       "https://maps.google.com/?q=D-26,+Sethi+Multispecialty+Clinic,+Bhatia+Chowk,+Kamla+Nagar,+Delhi+110007",
+    googleReviewsUrl: "https://share.google/kWxsw0r4DPZZAhNGi",
     emergencyDisclaimer:
       "If your child has severe difficulty breathing, seizures, loss of consciousness, severe trauma, or acute lethargy, please go to the nearest emergency hospital immediately. Website enquiries and scheduled bookings are not for emergency medical care.",
   },

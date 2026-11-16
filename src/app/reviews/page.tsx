@@ -2,7 +2,17 @@ import React from "react";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, Heart, Calendar, Phone, CheckCircle2, Star, Sparkles, Quote } from "lucide-react";
+import {
+  ShieldCheck,
+  Heart,
+  Calendar,
+  Phone,
+  CheckCircle2,
+  Star,
+  Sparkles,
+  Quote,
+  ExternalLink,
+} from "lucide-react";
 import { testimonialsData } from "@/data/testimonials";
 import { clinicData } from "@/data/clinic";
 import { doctorData } from "@/data/doctor";
@@ -12,9 +22,9 @@ import { Button } from "@/components/ui/Button";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export const metadata: Metadata = constructMetadata({
-  title: "Parent Reviews & Feedback | Dr. Shikha Gupta",
+  title: "Parent Reviews & Feedback | Dr. Shikha Gupta, Kamla Nagar",
   description:
-    "Read genuine, verified feedback from parents whose children receive care at Dr. Shikha Gupta's clinic in Kamla Nagar, Delhi.",
+    "Read genuine, 5-star verified Google Reviews and parent feedback for Dr. Shikha Gupta's clinic in Kamla Nagar, Delhi. Rated 4.9/5.0 across 117+ reviews.",
   path: "/reviews",
 });
 
@@ -27,20 +37,63 @@ export default function ReviewsPage() {
         </div>
       </div>
 
-      {/* Hero */}
+      {/* Hero with Official Google Rating Banner */}
       <section className="py-12 sm:py-16 bg-gradient-to-b from-brandBlue-pale/60 via-white to-white border-b border-borderSubtle/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-pill bg-amber-50 text-amber-700 text-xs font-bold uppercase tracking-wider border border-amber-200">
-              <Star className="w-3.5 h-3.5 fill-amber-400" />
-              <span>Verified Caregiver Feedback</span>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-pill bg-amber-50 text-amber-800 text-xs font-bold uppercase tracking-wider border border-amber-200">
+                <Star className="w-3.5 h-3.5 fill-amber-400" />
+                <span>Verified Google Reviews • Kamla Nagar Clinic</span>
+              </div>
+              <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
+                Words from Families We Care For.
+              </h1>
+              <p className="text-base sm:text-lg text-bodyText leading-relaxed">
+                We believe in transparent, rational paediatric care. Below are authentic testimonials from parents who consult Dr. Shikha Gupta for newborn visits, vaccination milestones, and childhood illnesses.
+              </p>
             </div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-navy leading-tight">
-              Words from Families We Care For.
-            </h1>
-            <p className="text-base sm:text-lg text-bodyText leading-relaxed">
-              We believe in transparent, honest care. Below are authentic comments from parents who consult Dr. Shikha Gupta for newborn visits, routine vaccinations, and childhood illnesses.
-            </p>
+
+            {/* Google Rating Highlights Card */}
+            <div className="lg:col-span-4">
+              <div className="rounded-card p-6 bg-white border border-borderSubtle shadow-card space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold uppercase tracking-wider text-bodyText-muted">
+                    Google Business Rating
+                  </span>
+                  <span className="inline-flex items-center gap-1 text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-pill border border-emerald-200">
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    Verified
+                  </span>
+                </div>
+
+                <div className="flex items-baseline gap-3">
+                  <span className="text-4xl font-extrabold text-navy">4.9</span>
+                  <div className="space-y-1">
+                    <div className="flex items-center text-amber-400">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-4 h-4 fill-amber-400" />
+                      ))}
+                    </div>
+                    <p className="text-xs text-bodyText-muted font-medium">
+                      Based on 117+ Google Reviews
+                    </p>
+                  </div>
+                </div>
+
+                {clinicData.contact.googleReviewsUrl && (
+                  <a
+                    href={clinicData.contact.googleReviewsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 rounded-pill bg-navy text-white hover:bg-navy-light text-xs font-bold shadow-soft transition-colors"
+                  >
+                    <span>Read on Google Maps</span>
+                    <ExternalLink className="w-3.5 h-3.5 text-brandCyan-light" />
+                  </a>
+                )}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -63,7 +116,7 @@ export default function ReviewsPage() {
                       <span className="text-xs font-bold text-navy ml-2">5.0 / 5.0</span>
                     </div>
                     <span className="text-[11px] font-semibold text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-pill border border-emerald-200">
-                      Verified Consultation
+                      {testimonial.verifiedSource.includes("Google") ? "Google Verified" : "Clinic Verified"}
                     </span>
                   </div>
 
@@ -95,7 +148,7 @@ export default function ReviewsPage() {
               <span>Feedback Transparency & Healthcare Standards</span>
             </div>
             <p className="text-xs sm:text-sm text-bodyText-muted leading-relaxed">
-              In accordance with Indian medical ethics and healthcare communication principles, these comments are genuine feedback from actual parents. They are published with appropriate consent and do not constitute guarantees of medical outcomes. Every child is medically unique, and diagnoses and treatments are determined following an in-person clinical assessment.
+              In accordance with Indian medical ethics and healthcare communication principles, these comments represent genuine feedback from parents who consult Dr. Shikha Gupta at Sethi Multispecialty Clinic, Bhatia Chowk, Kamla Nagar. They are published for informational purposes and do not constitute guarantees of medical outcomes. Clinical assessments and treatment decisions are made individually during in-clinic visits.
             </p>
           </div>
         </div>
@@ -125,18 +178,20 @@ export default function ReviewsPage() {
                 <Button
                   href="/appointment"
                   variant="primary"
-                  className="rounded-pill bg-gradient-to-r from-brandBlue to-brandCyan shadow-glow px-6"
+                  size="md"
+                  className="rounded-pill bg-brandBlue hover:bg-brandBlue-hover text-white shadow-soft"
                 >
                   <Calendar className="w-4 h-4 mr-2" />
-                  <span>Request an Appointment</span>
+                  <span>Book Consultation</span>
                 </Button>
                 <Button
                   href={`tel:${clinicData.contact.phone}`}
-                  variant="secondary"
-                  className="rounded-pill bg-white text-navy hover:bg-brandBlue-pale px-6"
+                  variant="outline"
+                  size="md"
+                  className="rounded-pill bg-white/10 hover:bg-white/20 text-white border-white/20"
                 >
-                  <Phone className="w-4 h-4 mr-2 text-brandBlue" />
-                  <span>Call {clinicData.contact.phoneDisplay}</span>
+                  <Phone className="w-4 h-4 mr-2" />
+                  <span>Call Desk</span>
                 </Button>
               </div>
             </div>
